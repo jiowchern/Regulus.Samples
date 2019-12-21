@@ -1,11 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Regulus\Regulus.Remote.Client.JIT\Regulus.Remote.Client.JIT.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Remote.Client\Regulus.Remote.Client.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj" />
   </ItemGroup>

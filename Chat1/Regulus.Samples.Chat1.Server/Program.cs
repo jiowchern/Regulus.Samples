@@ -1,4 +1,5 @@
 ﻿using System;
+using Regulus.Utility.WindowConsoleAppliction;
 
 namespace Regulus.Samples.Chat1.Server
 {
@@ -6,10 +7,10 @@ namespace Regulus.Samples.Chat1.Server
     {
         static void Main(string[] args)
         {
-            var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(int.Parse(args[0]), new Room(), Remote.Protocol.Essential.CreateFromDomain());
-            service.Launch();
+            var app = new Application(int.Parse(args[0]));
             
-
+            app.Run();
+            
         }
     }
 }
