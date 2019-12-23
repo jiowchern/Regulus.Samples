@@ -1,8 +1,8 @@
 ### 聊天室
 編譯  
 ```powershell
-dotnet build .\Regulus.Samples.Chat1.Server\Regulus.Samples.Chat1.Server.csproj -o bin\server
-dotnet build .\Regulus.Samples.Chat1.Client\Regulus.Samples.Chat1.Client.csproj -o bin\client
+dotnet publish .\Regulus.Samples.Chat1.Server\Regulus.Samples.Chat1.Server.csproj -o bin\server
+dotnet publish .\Regulus.Samples.Chat1.Client\Regulus.Samples.Chat1.Client.csproj -o bin\client
 ```
 執行 Server  
 ```powershell
