@@ -30,7 +30,8 @@ namespace Regulus.Samples{
         {            
             _Agent.Connect(new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), port)).OnValue += _ConnectResult;
         }
-       
+        
+        
 
         private void _ConnectResult(bool obj)
         {
@@ -43,7 +44,6 @@ namespace Regulus.Samples{
         }
 
        
-        // Update is called once per frame
         void Update()
         {
             _Updater.Working();
