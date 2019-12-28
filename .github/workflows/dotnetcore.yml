@@ -8,10 +8,8 @@ jobs:
     runs-on: ubuntu-latest    
 
     steps:       
-      - name: Checkout
-        uses: actions/checkout@v2.0.0
-      - name: Bump Git Submodules
-        uses: domdere/git-submodule-action@0.0.1
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@2.0.0
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
