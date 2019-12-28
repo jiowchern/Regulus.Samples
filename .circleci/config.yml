@@ -4,13 +4,15 @@ orbs:
   win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
 
 jobs:
-  build: # name of your job
+  build: build sln # name of your job
     executor: win/default # executor type
 
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
       - run: git submodule sync
-      - run: git submodule update --init
-      - run: dir
+      - run: git submodule update --init      
       - run: dotnet build ./
+      - run: docker build -t Chat1 -no-cache ./Dockers/Chat1-Dockerfile
+  
+        
