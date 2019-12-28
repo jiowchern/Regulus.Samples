@@ -13,6 +13,6 @@ jobs:
       - run: git submodule sync
       - run: git submodule update --init      
       - run: dotnet build ./
-      - run: docker build -t chat1 --no-cache ./Dockers/Chat1-Dockerfile  
+      - run: docker build -t chat1 --no-cache -f ./Dockers/Chat1-Dockerfile  
 
         
