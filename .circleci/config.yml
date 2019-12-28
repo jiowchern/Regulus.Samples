@@ -4,18 +4,20 @@ orbs:
   win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
 
 jobs:
-  build: # name of your job
-    executor: win/default # executor type
+  
+    
+  docker-push: # name of your job
+    executor: win/vs2019 # executor type
 
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
-      #- run: git submodule sync
-      #- run: git submodule update --init      
+      - run: git submodule sync
+      - run: git submodule update --init      
       - run: docker login docker.pkg.github.com --username jiowchern -p 3e01aa54da75ab697c6ee1486802fb04a0afcf56
       - run: docker build -t regulus.samples.chat1.server ./Chat1/Regulus.Samples.Chat1.Server
       - run: docker tag regulus.samples.chat1.server docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
       - run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
-      
+  
 
         
