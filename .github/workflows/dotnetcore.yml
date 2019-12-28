@@ -17,7 +17,8 @@ jobs:
         with:
           dotnet-version: '3.1.100'
       - run: |
-          cd /Regulus.Samples
+          ll
+          cd Regulus.Samples
           dotnet build -c Release
       
           
