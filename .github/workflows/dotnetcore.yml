@@ -16,7 +16,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '3.1.100'
-      - run: dotnet build ./Regulus.Samples -c Release
+      - run: |
+          cd /Regulus.Samples
+          dotnet build -c Release
       
           
           
