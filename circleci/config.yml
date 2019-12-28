@@ -1,0 +1,14 @@
+version: 2
+jobs:
+ build:
+   machine: true
+   steps:
+     - checkout 
+
+     # build image
+     - run: |         
+         docker info
+         docker build -t chat1 -f ./Dockers/Chat1-Dockerfile .
+     
+   
+     
