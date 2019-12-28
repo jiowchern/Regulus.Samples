@@ -13,7 +13,7 @@ jobs:
       #- run: git submodule sync
       #- run: git submodule update --init      
       - run: docker login docker.pkg.github.com --username jiowchern -p 3e01aa54da75ab697c6ee1486802fb04a0afcf56
-      - run: docker build -t regulus.samples.chat1.server --no-cache ./Chat1/Regulus.Samples.Chat1.Server
+      - run: docker build -t regulus.samples.chat1.server ./Chat1/Regulus.Samples.Chat1.Server
       - run: docker tag regulus.samples.chat1.server docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
       - run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
       
