@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build: # name of your job
-    executor: win/vs2019 # executor type
+    executor: win/default # executor type
 
     steps:
       # Commands are run in a Windows virtual machine environment
