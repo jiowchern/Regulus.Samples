@@ -13,10 +13,6 @@ jobs:
       - run: git submodule sync
       - run: git submodule update --init      
       - run: dotnet build ./
-      
-  docker:
-    executor: win/default # executor type
-      
-    steps:
       - run: docker build -t chat1 --no-cache ./Dockers/Chat1-Dockerfile  
+
         
