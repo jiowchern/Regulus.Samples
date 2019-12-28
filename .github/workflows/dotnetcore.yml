@@ -8,15 +8,18 @@ jobs:
     runs-on: ubuntu-latest    
 
     steps:
-    - uses: actions/checkout@master    
-      with:
-        ref: master
-        submodules: true  
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.108
-    - name: Build with dotnet
-      run: |
-        dotnet restore
-        dotnet build --configuration Release
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - uses: actions/checkout@v2
+      - name: Checkout submodules
+        shell: bash
+        run: git submodule sync --recursive                
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2.108
+      - name: Build with dotnet
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
