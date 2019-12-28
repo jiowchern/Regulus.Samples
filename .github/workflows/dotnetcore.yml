@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest    
 
     steps:       
-      - name: Clone
-        shell: bash
-        run : git clone --recurse-submodules -j8 https://github.com/jiowchern/Regulus.Samples.git
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@2.0.0
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
