@@ -16,10 +16,14 @@ cd .\bin\client
 dotnet .\Regulus.Samples.Chat1.Client.dll ChatName 127.0.0.1 31716
 ```
 ---
-## Docker [![Github Rocker Status](https://github.com/jiowchern/Regulus.Samples/workflows/Docker/badge.svg)](https://github.com/jiowchern/Regulus.Samples/actions?query=workflow%3ADocker)  
+## Docker [![Github Rocker Status](https://github.com/jiowchern/Regulus.Samples/workflows/Docker/badge.svg)](https://github.com/jiowchern/Regulus.Samples/actions?query=workflow%3ADocker) 
+**Packages**  
+* [Server Package](https://github.com/jiowchern/Regulus.Samples/packages/94444)  
+* [Client Package](https://github.com/jiowchern/Regulus.Samples/packages/94715)
 
-**Pull Server**  
-[regulus.samples.chat1.server](https://github.com/jiowchern/Regulus.Samples/packages/94444)  
+**Pull Server** 
+
+
 ```powershell
 docker pull docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
 ```
@@ -31,8 +35,8 @@ docker run --rm -it --name chat1.server --entrypoint dotnet regulus.samples.chat
 ```powershell
 docker pull docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.client:latest
 ```
-**Run Server**
+**Run Client**
 ```powershell
-docker run --rm -it --name chat1.client --net=container:chat1.server --entrypoint dotnet regulus.samples.chat1.client ./Regulus.Samples.Chat1.Client.dll jc 127.0.0.1 40123
+docker run --rm -it --name chat1.client --net=container:chat1.server --entrypoint ChaterName regulus.samples.chat1.client ./Regulus.Samples.Chat1.Client.dll jc 127.0.0.1 40123
 ```
 ---
