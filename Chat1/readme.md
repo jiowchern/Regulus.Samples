@@ -16,10 +16,14 @@ cd .\bin\client
 dotnet .\Regulus.Samples.Chat1.Client.dll ChatName 127.0.0.1 31716
 ```
 ---
-## Docker [![Github Rocker Status](https://github.com/jiowchern/Regulus.Samples/workflows/Docker/badge.svg)](https://github.com/jiowchern/Regulus.Samples/actions?query=workflow%3ADocker)  
+## Docker [![Github Rocker Status](https://github.com/jiowchern/Regulus.Samples/workflows/Docker/badge.svg)](https://github.com/jiowchern/Regulus.Samples/actions?query=workflow%3ADocker) 
+**Packages**  
+* [Server Package](https://github.com/jiowchern/Regulus.Samples/packages/94444)  
+* [Client Package](https://github.com/jiowchern/Regulus.Samples/packages/94715)
 
-**Pull Server**  
-[regulus.samples.chat1.server](https://github.com/jiowchern/Regulus.Samples/packages/94444)  
+**Pull Server** 
+
+
 ```powershell
 docker pull docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
 ```
