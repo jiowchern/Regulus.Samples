@@ -5,16 +5,17 @@ on: [push]
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: ubuntu-16.04
     steps:
     - name: Checkout
       uses: actions/checkout@v2.0.0          
-    - name: Login
-      run: docker login docker.pkg.github.com --username jiowchern  -p 3e01aa54da75ab697c6ee1486802fb04a0afcf56
+    
     - name: Build
       run: docker build -t regulus.samples.chat1.server --no-cache ./Chat1/Regulus.Samples.Chat1.Server      
     - name: Tag
       run: docker tag regulus.samples.chat1.server docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
+    - name: Login
+      run: docker login docker.pkg.github.com --username jiowchern  -p  ${{ secrets.REGULUS_SAMPLES_PUBLISH }}
     - name: Push
       run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
       
