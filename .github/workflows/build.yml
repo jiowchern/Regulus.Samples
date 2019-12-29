@@ -13,3 +13,6 @@ jobs:
       run: git clone --recurse-submodules https://github.com/jiowchern/Regulus.Samples.git    
     - name: Build with dotnet
       run: dotnet build --configuration Release ./Regulus.Samples/Regulus.Samples.sln
+    - name: Test
+      run: dotnet test ./Regulus.Samples
+    
