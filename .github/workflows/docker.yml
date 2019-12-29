@@ -1,8 +1,9 @@
 name: Docker
 
-push:
-    branches:
-      - publish-docker
+on:
+    push:
+        branches:
+            - publish-docker
 
 jobs:
     build_chat1_client:
@@ -17,20 +18,21 @@ jobs:
         - name: Login
           run: docker login docker.pkg.github.com --username jiowchern  -p  ${{ secrets.REGULUS_SAMPLES_PUBLISH }}
         - name: Push
-          run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.client:latest
-  build_chat1_server:
-    runs-on: ubuntu-16.04
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2.0.0              
-    - name: Build
-      run: docker build -t regulus.samples.chat1.server ./Chat1/Regulus.Samples.Chat1.Server      
-    - name: Tag
-      run: docker tag regulus.samples.chat1.server docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
-    - name: Login
-      run: docker login docker.pkg.github.com --username jiowchern  -p  ${{ secrets.REGULUS_SAMPLES_PUBLISH }}
-    - name: Push
-      run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
+          run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.client:latest    
+      
+    build_chat1_server: 
+        runs-on: ubuntu-16.04
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2.0.0              
+        - name: Build
+          run: docker build -t regulus.samples.chat1.server ./Chat1/Regulus.Samples.Chat1.Server      
+        - name: Tag
+          run: docker tag regulus.samples.chat1.server docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
+        - name: Login
+          run: docker login docker.pkg.github.com --username jiowchern  -p  ${{ secrets.REGULUS_SAMPLES_PUBLISH }}
+        - name: Push
+          run: docker push docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat1.server:latest
       
         
         
