@@ -37,6 +37,6 @@ docker pull docker.pkg.github.com/jiowchern/regulus.samples/regulus.samples.chat
 ```
 **Run Client**
 ```powershell
-docker run --rm -it --name chat1.client --net=container:chat1.server --entrypoint dotnet regulus.samples.chat1.client ./Regulus.Samples.Chat1.Client.dll jc 127.0.0.1 40123
+docker run --rm -it --name chat1.client --net=container:chat1.server --entrypoint ChaterName regulus.samples.chat1.client ./Regulus.Samples.Chat1.Client.dll jc 127.0.0.1 40123
 ```
 ---
