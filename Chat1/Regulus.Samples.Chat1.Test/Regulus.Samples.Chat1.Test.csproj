@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Regulus.Samples.Chat1.Client\Regulus.Samples.Chat1.Client.csproj" />
-    <ProjectReference Include="..\Regulus.Samples.Chat1.Server\Regulus.Samples.Chat1.Server.csproj" />
+    <ProjectReference Include="..\Regulus.Samples.Chat1.Main\Regulus.Samples.Chat1.Main.csproj" />
   </ItemGroup>
 
 </Project>

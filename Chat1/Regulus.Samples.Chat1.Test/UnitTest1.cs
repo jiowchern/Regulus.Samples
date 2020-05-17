@@ -14,7 +14,7 @@ namespace Regulus.Samples.Chat1.Test
         [Test]
         public void Test1()
         {
-            var room = new Regulus.Samples.Chat1.Server.Room();
+            var room = new Regulus.Samples.Chat1.Main.Room();
 
             var chatter1 = new Chatter();
             var chatter2 = new Chatter();
