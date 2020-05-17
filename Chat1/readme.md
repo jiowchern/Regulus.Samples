@@ -1,6 +1,6 @@
-# Step by step
+# 使用說明
 
-## 開發功能
+## 功能開發
 ### 1.引入程式庫  
 ![程式庫](./doc/lib-refs.jpg)  
 ### 2.建立主專案檔案結構  
@@ -18,18 +18,19 @@ Protocol - 空專案，目的是產生共通物件定義的實作。
     </Target>
 </Project>
 ```  
-這邊是使用 **Regulus.Application.Protocol.CodeWriter** 產生程式碼到 Regulus.Samples.Chat1.Protocol 。  
+使用 **Regulus.Application.Protocol.CodeWriter** 產生程式碼到 Regulus.Samples.Chat1.Protocol 。  
 之後當編譯 **Regulus.Samples.Chat1.Common** 時會自動產生程式碼。  
 ![檔案路徑](./doc/protocol-codes.jpg)  
 
 
 ## 執行
-```bash
-Regulus.Samples> dotnet run --project .\Regulus\Regulus.Application.Client --protocol .\Chat1\Regulus.Samples.Chat1.Protocol\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Protocol.dll
+Client  
 ```
-
-```bash
-Regulus.Samples> dotnet run --project .\Regulus\Regulus.Application.Server --port 53771 --protocol .\Chat1\Regulus.Samples.Chat1.Protocol\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Protocol.dll --entryname Regulus.Samples.Chat1.Main.Room --entry .\Chat1\Regulus.Samples.Chat1.Main\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Main.dll
+C:\Regulus.Samples> dotnet run --project .\Regulus\Regulus.Application.Client --protocol .\Chat1\Regulus.Samples.Chat1.Protocol\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Protocol.dll
+```
+Server  
+```
+C:\Regulus.Samples> dotnet run --project .\Regulus\Regulus.Application.Server --port 53771 --protocol .\Chat1\Regulus.Samples.Chat1.Protocol\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Protocol.dll --entryname Regulus.Samples.Chat1.Main.Room --entry .\Chat1\Regulus.Samples.Chat1.Main\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Main.dll
 ```
 
 
