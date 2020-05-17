@@ -30,11 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Proto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Network", "Regulus\Regulus.Network\Regulus.Network.csproj", "{C15D6ED9-A1B7-43F7-98A5-85665536743A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run", "Run", "{8EFD4202-3BC9-4FF0-9168-A93961B7183E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Serialization", "Regulus\Regulus.Serialization\Regulus.Serialization.csproj", "{404A78EE-974A-45D3-8280-EEF891C7C09B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Application.Server", "Regulus\Regulus.Application.Server\Regulus.Application.Server.csproj", "{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,18 +138,6 @@ Global
 		{404A78EE-974A-45D3-8280-EEF891C7C09B}.Release|x64.Build.0 = Release|Any CPU
 		{404A78EE-974A-45D3-8280-EEF891C7C09B}.Release|x86.ActiveCfg = Release|Any CPU
 		{404A78EE-974A-45D3-8280-EEF891C7C09B}.Release|x86.Build.0 = Release|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Debug|x64.Build.0 = Debug|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Debug|x86.Build.0 = Debug|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Release|Any CPU.Build.0 = Release|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Release|x64.ActiveCfg = Release|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Release|x64.Build.0 = Release|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Release|x86.ActiveCfg = Release|Any CPU
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,7 +151,6 @@ Global
 		{C0496FE6-ED46-48AC-94A3-D3ACFA425CC6} = {F9C2FC4D-277B-4A86-AECC-4930057A1278}
 		{C15D6ED9-A1B7-43F7-98A5-85665536743A} = {BA7380D3-00A0-4E1A-B22C-626126666BAA}
 		{404A78EE-974A-45D3-8280-EEF891C7C09B} = {BA7380D3-00A0-4E1A-B22C-626126666BAA}
-		{460E5B5E-8876-4CC8-B7E7-7C67AA94B353} = {8EFD4202-3BC9-4FF0-9168-A93961B7183E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEFCB5E0-9D6F-4210-8DFB-13C0C24DA12A}
