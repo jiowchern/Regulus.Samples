@@ -3,13 +3,13 @@
             using System.Collections.Generic;
             
             
-                public class C7ecca965c861441a92aee7fca1ca8a0e : Regulus.Remote.IProtocol
+                public class C5e112d3d93134316b75cdc8cecab4fa2 : Regulus.Remote.IProtocol
                 {
                     Regulus.Remote.InterfaceProvider _InterfaceProvider;
                     Regulus.Remote.EventProvider _EventProvider;
                     Regulus.Remote.MemberMap _MemberMap;
                     Regulus.Serialization.ISerializer _Serializer;
-                    public C7ecca965c861441a92aee7fca1ca8a0e()
+                    public C5e112d3d93134316b75cdc8cecab4fa2()
                     {
                         var types = new Dictionary<Type, Type>();
                         types.Add(typeof(Regulus.Samples.Chat1.Common.IBroadcastable) , typeof(Regulus.Samples.Chat1.Common.Ghost.CIBroadcastable) );
