@@ -520,17 +520,17 @@ PlayerSettings:
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
   webGLMemorySize: 256
-  webGLExceptionSupport: 1
-  webGLNameFilesAsHashes: 0
+  webGLExceptionSupport: 3
+  webGLNameFilesAsHashes: 1
   webGLDataCaching: 1
-  webGLDebugSymbols: 0
+  webGLDebugSymbols: 1
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1
-  webGLLinkerTarget: 1
+  webGLLinkerTarget: 0
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
   platformArchitecture: {}
@@ -538,6 +538,7 @@ PlayerSettings:
     Standalone: 1
   il2cppCompilerConfiguration:
     Standalone: 0
+    WebGL: 0
   managedStrippingLevel:
     Standalone: 1
   incrementalIl2cppBuild: {}
