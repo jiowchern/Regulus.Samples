@@ -1,0 +1,7 @@
+<Project>
+    <Target Condition="'$(ProjectName)'=='Regulus.Samples.Helloworld.Common' And '$(SolutionDir)'!='*Undefined*'" Name="CreateProtocol" AfterTargets="Build">
+        <Exec Command="del $(SolutionDir)Helloworld\Regulus.Samples.Helloworld.Protocol\*.cs /q"/>
+        <Exec Command="dotnet run --project $(SolutionDir)/Regulus/Regulus.Application.Protocol.CodeWriter  --common $(TargetPath) --output $(SolutionDir)\Helloworld\Regulus.Samples.Helloworld.Protocol" />
+    </Target>
+   
+</Project>
