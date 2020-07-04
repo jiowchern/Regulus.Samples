@@ -23,9 +23,9 @@ namespace Regulus.Samples.Helloworld.Client
                 System.Console.WriteLine($"Connect to {ip}:{port} ... ");
                 connect.Connect(new IPEndPoint(ip, port));
             };
-            agent.QueryNotifier<Common.IGreeter>().Supply += (echo)=> {
+            agent.QueryNotifier<Common.IGreeter>().Supply += (greeter) => {
                 String user = "you";
-                echo.SayHello(new HelloRequest() { Name = user}).OnValue += _GetReply;
+                greeter.SayHello(new HelloRequest() { Name = user}).OnValue += _GetReply;
             };
             while (Enable)
             {
