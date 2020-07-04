@@ -94,10 +94,10 @@ static void Main(string[] args)
     var protocolAsm = Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
     var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
 
-    var greeter = new Entry();
-    var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(greeter, port, protocol);
+    var entry = new Entry();
+    var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(entry, port, protocol);
     service.Launch();
-    while (greeter.Enable)
+    while (entry.Enable)
     {
         System.Threading.Thread.Sleep(0);
     }
