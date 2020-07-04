@@ -12,7 +12,7 @@ namespace Regulus.Samples.Helloworld.Server
             var protocolAsm = Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
 
-            var echo = new Greeter();
+            var echo = new Entry();
             var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(echo, port, protocol);
             service.Launch();
             while (echo.Enable)

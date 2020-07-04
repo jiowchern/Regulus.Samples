@@ -6,13 +6,19 @@ Regulus.Samples.Helloworld.Client
 Regulus.Samples.Helloworld.Server  
 #### Step2. Define a common interface.
 ```csharp
-using System;
-
 namespace Regulus.Samples.Helloworld.Common
-{    
-    public interface IEcho
+{
+    public class HelloRequest
     {
-        Regulus.Remote.Value<string> Speak(string message);
+        public string Name;
+    }
+    public class HelloReply
+    {
+        public string Message;
+    }
+    public interface IGreeter
+    {
+        Regulus.Remote.Value<HelloReply> SayHello(HelloRequest request);
     }
 }
 ```
@@ -26,8 +32,82 @@ Directory.Build.targets
     </Target>   
 </Project>
 ```
-#### Step4. Implement client and server.
-Client  
+#### Step4. Update the server.
+Implement server entry.
+```csharp
+namespace Regulus.Samples.Helloworld.Server
+{
+    internal class Entry : Regulus.Remote.IEntry 
+    {
+        public volatile bool  Enable;
+
+        readonly Greeter _Greeter;
+        public Entry()
+        {
+            _Greeter = new Greeter();
+            Enable = true;
+        }
+
+        void IBinderProvider.AssignBinder(IBinder binder)
+        {
+            // IBinder is what you get when your client completes the connection.
+            binder.BreakEvent += _End;
+            binder.Bind<IGreeter>(_Greeter);
+            // unbind : binder.Unbind<IGreeter>(_Greeter);
+        }
+
+        private void _End()
+        {
+            Enable = false;
+        }
+
+        void IBootable.Launch()
+        {
+            Console.WriteLine("Server launch.");
+        }
+
+        void IBootable.Shutdown()
+        {
+            Console.WriteLine("Server shutdown.");
+        }
+    }
+}
+```
+Implement the Greeter.
+```csharp
+namespace Regulus.Samples.Helloworld.Server
+{
+    class Greeter : IGreeter
+    {
+        Value<HelloReply> IGreeter.SayHello(HelloRequest request)
+        {
+            return new HelloReply() { Message = $"Hello {request.Name}." };
+        }
+    }
+}
+```
+Create server.
+```csharp
+static void Main(string[] args)
+{
+    int port = int.Parse(args[0]);
+    var protocolAsm = Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
+    var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
+
+    var echo = new Entry();
+    var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(echo, port, protocol);
+    service.Launch();
+    while (echo.Enable)
+    {
+        System.Threading.Thread.Sleep(0);
+    }
+    service.Shutdown();
+    System.Console.WriteLine($"Press any key to end.");
+    System.Console.ReadKey();
+}
+```
+#### Step5. Update the client.
+Create client.
 ```csharp
 static void Main(string[] args)
 {
@@ -42,9 +122,9 @@ static void Main(string[] args)
         System.Console.WriteLine($"Connect to {ip}:{port} ... ");
         connect.Connect(new IPEndPoint(ip, port));
     };
-    agent.QueryNotifier<Common.IEcho>().Supply += (echo)=> {
-        System.Console.WriteLine($"Send message :Hello World!");
-        echo.Speak("Hello World!").OnValue += _GetEcho;
+    agent.QueryNotifier<Common.IGreeter>().Supply += (echo)=> {
+        String user = "you";
+        echo.SayHello(new HelloRequest() { Name = user}).OnValue += _GetReply;
     };
     while (Enable)
     {
@@ -53,26 +133,6 @@ static void Main(string[] args)
     }
             
     agent.Shutdown();
-    System.Console.WriteLine($"Press any key to end.");
-    System.Console.ReadKey();
-}
-```
-Server  
-```csharp
-static void Main(string[] args)
-{
-    int port = int.Parse(args[0]);
-    var protocolAsm = Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
-    var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
-
-    var echo = new Echo();
-    var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(echo, port, protocol);
-    service.Launch();
-    while (echo.Enable)
-    {
-        System.Threading.Thread.Sleep(0);
-    }
-    service.Shutdown();
     System.Console.WriteLine($"Press any key to end.");
     System.Console.ReadKey();
 }
