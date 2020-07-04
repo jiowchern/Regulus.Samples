@@ -5,7 +5,7 @@
     
     namespace Regulus.Samples.Helloworld.Common.Ghost 
     { 
-        public class CIEcho : Regulus.Samples.Helloworld.Common.IEcho , Regulus.Remote.IGhost
+        public class CIGreeter : Regulus.Samples.Helloworld.Common.IGreeter , Regulus.Remote.IGhost
         {
             readonly bool _HaveReturn ;
             
@@ -13,7 +13,7 @@
             
             
             
-            public CIEcho(Guid id, bool have_return )
+            public CIGreeter(Guid id, bool have_return )
             {
                 _HaveReturn = have_return ;
                 _GhostIdName = id;            
@@ -43,14 +43,14 @@
             }
             
             
-                Regulus.Remote.Value<System.String> Regulus.Samples.Helloworld.Common.IEcho.Speak(System.String _1)
+                Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply> Regulus.Samples.Helloworld.Common.IGreeter.SayHello(Regulus.Samples.Helloworld.Common.HelloRequest _1)
                 {                    
 
                     
-    var returnValue = new Regulus.Remote.Value<System.String>();
+    var returnValue = new Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply>();
     
 
-                    var info = typeof(Regulus.Samples.Helloworld.Common.IEcho).GetMethod("Speak");
+                    var info = typeof(Regulus.Samples.Helloworld.Common.IGreeter).GetMethod("SayHello");
                     _CallMethodEvent(info , new object[] {_1} , returnValue);                    
                     return returnValue;
                 }

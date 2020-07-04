@@ -23,9 +23,9 @@ namespace Regulus.Samples.Helloworld.Client
                 System.Console.WriteLine($"Connect to {ip}:{port} ... ");
                 connect.Connect(new IPEndPoint(ip, port));
             };
-            agent.QueryNotifier<Common.IEcho>().Supply += (echo)=> {
-                System.Console.WriteLine($"Send message :Hello World!");
-                echo.Speak("Hello World!").OnValue += _GetEcho;
+            agent.QueryNotifier<Common.IGreeter>().Supply += (echo)=> {
+                String user = "you";
+                echo.SayHello(new HelloRequest() { Name = user}).OnValue += _GetReply;
             };
             while (Enable)
             {
@@ -38,9 +38,9 @@ namespace Regulus.Samples.Helloworld.Client
             System.Console.ReadKey();
         }
 
-        private static void _GetEcho(string message)
+        private static void _GetReply(HelloReply reply)
         {
-            System.Console.WriteLine($"Receive message : {message}");
+            System.Console.WriteLine($"Receive message : {reply.Message}");
             Enable = false;
         }
     }

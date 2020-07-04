@@ -5,11 +5,11 @@ using System;
 
 namespace Regulus.Samples.Helloworld.Server
 {
-    internal class Echo : Regulus.Remote.IEntry , IEcho
+    internal class Greeter : Regulus.Remote.IEntry , IGreeter
     {
 
         public volatile bool  Enable;
-        public Echo()
+        public Greeter()
         {
             Enable = true;
         }
@@ -17,7 +17,9 @@ namespace Regulus.Samples.Helloworld.Server
         void IBinderProvider.AssignBinder(IBinder binder)
         {
             binder.BreakEvent += _End;
-            binder.Bind<IEcho>(this);            
+            binder.Bind<IGreeter>(this);
+            // unbind : binder.Unbind<IGreeter>(this);
+
         }
 
         private void _End()
@@ -35,10 +37,11 @@ namespace Regulus.Samples.Helloworld.Server
             Console.WriteLine("Server shutdown.");
         }
 
-        Value<string> IEcho.Speak(string message)
+        
+
+        Value<HelloReply> IGreeter.SayHello(HelloRequest request)
         {
-            Console.WriteLine($"Server receive message :{message}.");
-            return message;
+            return new HelloReply() { Message = $"Hello {request.Name}." };
         }
     }
 }
