@@ -1,10 +1,7 @@
 # Sample
 The following example shows how to create a chat project.
-## Development environment
-Import library  
-![程式庫](./doc/lib-refs.jpg)  
-Project structure 
-![檔案路徑](./doc/files-struct.jpg)  
+
+
 
 ## Create Protocol
 ```
@@ -14,11 +11,11 @@ dotnet run --project $(SolutionDir)/Regulus/Regulus.Application.Protocol.CodeWri
 ## Run Console 
 Client  
 ```
-C:\Regulus.Samples> dotnet run --project .\Regulus\Regulus.Application.Client --protocol .\Chat1\Regulus.Samples.Chat1.Protocol\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Protocol.dll
+C:\Regulus.Samples> dotnet run --project .\Chat1\Regulus.Samples.Chat1.Client\ -- --protocolfile .\Chat1\Regulus.Samples.Chat1.Client\bin\Debug\netcoreapp3.1\Regulus.Samples.Chat1.Protocol.dll
 ```
 Server  
 ```
-C:\Regulus.Samples> dotnet run --project .\Regulus\Regulus.Application.Server --port 53771 --protocol .\Chat1\Regulus.Samples.Chat1.Protocol\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Protocol.dll --entryname Regulus.Samples.Chat1.Main.Room --entry .\Chat1\Regulus.Samples.Chat1.Main\bin\Debug\netstandard2.0\Regulus.Samples.Chat1.Main.dll
+C:\Regulus.Samples> dotnet run --project .\Chat1\Regulus.Samples.Chat1.Server\ -- --protocolfile .\Chat1\Regulus.Samples.Chat1.Server\bin\Debug\netcoreapp3.1\Regulus.Samples.Chat1.Protocol.dll --port 53771
 ```
 
 ## In Unity

@@ -9,18 +9,18 @@
         {
             readonly bool _HaveReturn ;
             
-            readonly Guid _GhostIdName;
+            readonly long _GhostIdName;
             
             
             
-            public CIChatable(Guid id, bool have_return )
+            public CIChatable(long id, bool have_return )
             {
                 _HaveReturn = have_return ;
                 _GhostIdName = id;            
             }
             
 
-            Guid Regulus.Remote.IGhost.GetID()
+            long Regulus.Remote.IGhost.GetID()
             {
                 return _GhostIdName;
             }
@@ -40,6 +40,22 @@
             {
                 add { this._CallMethodEvent += value; }
                 remove { this._CallMethodEvent -= value; }
+            }
+
+            private event Regulus.Remote.EventNotifyCallback _AddEventEvent;
+
+            event Regulus.Remote.EventNotifyCallback Regulus.Remote.IGhost.AddEventEvent
+            {
+                add { this._AddEventEvent += value; }
+                remove { this._AddEventEvent -= value; }
+            }
+
+            private event Regulus.Remote.EventNotifyCallback _RemoveEventEvent;
+
+            event Regulus.Remote.EventNotifyCallback Regulus.Remote.IGhost.RemoveEventEvent
+            {
+                add { this._RemoveEventEvent += value; }
+                remove { this._RemoveEventEvent -= value; }
             }
             
             

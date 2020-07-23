@@ -9,18 +9,18 @@
         {
             readonly bool _HaveReturn ;
             
-            readonly Guid _GhostIdName;
+            readonly long _GhostIdName;
             
             
             
-            public CIBroadcastable(Guid id, bool have_return )
+            public CIBroadcastable(long id, bool have_return )
             {
                 _HaveReturn = have_return ;
                 _GhostIdName = id;            
             }
             
 
-            Guid Regulus.Remote.IGhost.GetID()
+            long Regulus.Remote.IGhost.GetID()
             {
                 return _GhostIdName;
             }
@@ -41,15 +41,37 @@
                 add { this._CallMethodEvent += value; }
                 remove { this._CallMethodEvent -= value; }
             }
+
+            private event Regulus.Remote.EventNotifyCallback _AddEventEvent;
+
+            event Regulus.Remote.EventNotifyCallback Regulus.Remote.IGhost.AddEventEvent
+            {
+                add { this._AddEventEvent += value; }
+                remove { this._AddEventEvent -= value; }
+            }
+
+            private event Regulus.Remote.EventNotifyCallback _RemoveEventEvent;
+
+            event Regulus.Remote.EventNotifyCallback Regulus.Remote.IGhost.RemoveEventEvent
+            {
+                add { this._RemoveEventEvent += value; }
+                remove { this._RemoveEventEvent -= value; }
+            }
             
             
 
 
-                public System.Action<System.String,System.String> _MessageEvent;
+                public Regulus.Remote.GhostEventHandler _MessageEvent = new Regulus.Remote.GhostEventHandler();
                 event System.Action<System.String,System.String> Regulus.Samples.Chat1.Common.IBroadcastable.MessageEvent
                 {
-                    add { _MessageEvent += value;}
-                    remove { _MessageEvent -= value;}
+                    add { 
+                            var id = _MessageEvent.Add(value);
+                            _AddEventEvent(typeof(Regulus.Samples.Chat1.Common.IBroadcastable).GetEvent("MessageEvent"),id);
+                        }
+                    remove { 
+                                var id = _MessageEvent.Remove(value);
+                                _RemoveEventEvent(typeof(Regulus.Samples.Chat1.Common.IBroadcastable).GetEvent("MessageEvent"),id);
+                            }
                 }
                 
             

@@ -6,8 +6,7 @@ namespace Regulus.Samples.Chat1.Common
 {
 
     public interface IChatable
-    {
-        
+    {        
         void Send(string name , string message);
     }
 }

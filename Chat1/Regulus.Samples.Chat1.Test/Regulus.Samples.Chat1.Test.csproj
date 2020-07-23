@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Regulus.Samples.Chat1.Main\Regulus.Samples.Chat1.Main.csproj" />
+    <ProjectReference Include="..\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj" />
+    <ProjectReference Include="..\Regulus.Samples.Chat1.Server\Regulus.Samples.Chat1.Server.csproj" />
   </ItemGroup>
 
 </Project>
