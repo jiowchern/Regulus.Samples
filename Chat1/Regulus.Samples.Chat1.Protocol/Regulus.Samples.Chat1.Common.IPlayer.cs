@@ -14,8 +14,7 @@
             
             
             public CIPlayer(long id, bool have_return )
-            {
-                // notifier propertys
+            {                
                 //Chatters
 _Chatters = new Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatter>((p) => _AddSupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"), p), (p) => _RemoveSupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"),p), (p) => _AddUnsupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"), p), (p) => _RemoveUnsupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"),p));
                 _HaveReturn = have_return ;

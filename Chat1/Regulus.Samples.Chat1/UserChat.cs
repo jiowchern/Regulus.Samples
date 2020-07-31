@@ -1,4 +1,4 @@
-﻿using Regulus.Framework;
+﻿using Regulus.Utiliey;
 using Regulus.Remote;
 using Regulus.Samples.Chat1.Common;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Regulus.Samples.Chat1
 {
-    internal class UserChat : Framework.IBootable , Common.IPlayer , IMessageable
+    internal class UserChat : IBootable , Common.IPlayer , IMessageable
     {
         private IBinder _Binder;
         private Room _Room;

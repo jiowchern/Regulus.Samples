@@ -14,8 +14,7 @@
             
             
             public CIGreeter(long id, bool have_return )
-            {
-                // notifier propertys
+            {                
                 
                 _HaveReturn = have_return ;
                 _GhostIdName = id; 

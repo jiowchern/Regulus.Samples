@@ -14,8 +14,7 @@
             
             
             public CIChatter(long id, bool have_return )
-            {
-                // notifier propertys
+            {                
                 //Name
                 _HaveReturn = have_return ;
                 _GhostIdName = id; 
