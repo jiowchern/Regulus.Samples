@@ -1,0 +1,67 @@
+﻿using Regulus.Remote;
+using System;
+using System.Collections.Generic;
+
+namespace Regulus.Samples.Chat1
+{
+    class ItemNotifier<T> : INotifier<T>
+    {         
+        readonly List<T> _Gpis;
+
+        public IReadOnlyCollection<T> Items => _Gpis;
+        T[] INotifier<T>.Ghosts => _Gpis.ToArray();
+
+        public ItemNotifier()
+        {
+            _Gpis = new List<T>();
+        }
+        public void Add(T item)
+        {
+            _Gpis.Add(item);
+        }
+        public void Remove(T item)
+        {
+            _Gpis.Remove(item);
+        }
+        event Action<T> _Supply;
+        event Action<T> INotifier<T>.Supply
+        {
+            add
+            {
+                foreach (var gpi in _Gpis)
+                {
+                    value(gpi);
+                }
+                _Supply += value;
+            }
+
+            remove
+            {
+                _Supply -= value;
+            }
+        }
+
+        event Action<T> _Unsupply;
+        event Action<T> INotifier<T>.Unsupply
+        {
+            add
+            {
+                _Unsupply += value;
+            }
+
+            remove
+            {
+                _Unsupply -= value;
+            }
+        }
+
+        internal void Clear()
+        {
+            foreach (var item in _Gpis)
+            {
+                _Unsupply(item);
+            }
+            _Gpis.Clear();
+        }
+    }
+}

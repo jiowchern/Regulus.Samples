@@ -3,9 +3,9 @@
     
     using System.Collections.Generic;
     
-    namespace Regulus.Samples.Helloworld.Common.Ghost 
+    namespace Regulus.Samples.Chat1.Common.Ghost 
     { 
-        public class CIGreeter : Regulus.Samples.Helloworld.Common.IGreeter , Regulus.Remote.IGhost
+        public class CIChatter : Regulus.Samples.Chat1.Common.IChatter , Regulus.Remote.IGhost
         {
             readonly bool _HaveReturn ;
             
@@ -13,10 +13,10 @@
             
             
             
-            public CIGreeter(long id, bool have_return )
+            public CIChatter(long id, bool have_return )
             {
                 // notifier propertys
-                
+                //Name
                 _HaveReturn = have_return ;
                 _GhostIdName = id; 
                 
@@ -117,21 +117,20 @@
                 }
             }
             
-                Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply> Regulus.Samples.Helloworld.Common.IGreeter.SayHello(Regulus.Samples.Helloworld.Common.HelloRequest _1)
+                void Regulus.Samples.Chat1.Common.IChatter.Whisper(System.String _1)
                 {                    
 
-                    
-    var returnValue = new Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply>();
-    
-
-                    var info = typeof(Regulus.Samples.Helloworld.Common.IGreeter).GetMethod("SayHello");
+                    Regulus.Remote.IValue returnValue = null;
+                    var info = typeof(Regulus.Samples.Chat1.Common.IChatter).GetMethod("Whisper");
                     _CallMethodEvent(info , new object[] {_1} , returnValue);                    
-                    return returnValue;
+                    
                 }
 
                 
 
 
+                public Regulus.Remote.Property<System.String> _Name= new Regulus.Remote.Property<System.String>();
+                Regulus.Remote.Property<System.String> Regulus.Samples.Chat1.Common.IChatter.Name { get{ return _Name;} }
 
             
         }

@@ -3,9 +3,9 @@
     
     using System.Collections.Generic;
     
-    namespace Regulus.Samples.Helloworld.Common.Ghost 
+    namespace Regulus.Samples.Chat1.Common.Ghost 
     { 
-        public class CIGreeter : Regulus.Samples.Helloworld.Common.IGreeter , Regulus.Remote.IGhost
+        public class CILogin : Regulus.Samples.Chat1.Common.ILogin , Regulus.Remote.IGhost
         {
             readonly bool _HaveReturn ;
             
@@ -13,7 +13,7 @@
             
             
             
-            public CIGreeter(long id, bool have_return )
+            public CILogin(long id, bool have_return )
             {
                 // notifier propertys
                 
@@ -117,14 +117,14 @@
                 }
             }
             
-                Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply> Regulus.Samples.Helloworld.Common.IGreeter.SayHello(Regulus.Samples.Helloworld.Common.HelloRequest _1)
+                Regulus.Remote.Value<System.Boolean> Regulus.Samples.Chat1.Common.ILogin.Login(System.String _1)
                 {                    
 
                     
-    var returnValue = new Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply>();
+    var returnValue = new Regulus.Remote.Value<System.Boolean>();
     
 
-                    var info = typeof(Regulus.Samples.Helloworld.Common.IGreeter).GetMethod("SayHello");
+                    var info = typeof(Regulus.Samples.Chat1.Common.ILogin).GetMethod("Login");
                     _CallMethodEvent(info , new object[] {_1} , returnValue);                    
                     return returnValue;
                 }

@@ -3,9 +3,9 @@
     
     using System.Collections.Generic;
     
-    namespace Regulus.Samples.Helloworld.Common.Ghost 
+    namespace Regulus.Samples.Chat1.Common.Ghost 
     { 
-        public class CIGreeter : Regulus.Samples.Helloworld.Common.IGreeter , Regulus.Remote.IGhost
+        public class CIPlayer : Regulus.Samples.Chat1.Common.IPlayer , Regulus.Remote.IGhost
         {
             readonly bool _HaveReturn ;
             
@@ -13,10 +13,11 @@
             
             
             
-            public CIGreeter(long id, bool have_return )
+            public CIPlayer(long id, bool have_return )
             {
                 // notifier propertys
-                
+                //Chatters
+_Chatters = new Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatter>((p) => _AddSupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"), p), (p) => _RemoveSupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"),p), (p) => _AddUnsupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"), p), (p) => _RemoveUnsupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"),p));
                 _HaveReturn = have_return ;
                 _GhostIdName = id; 
                 
@@ -117,22 +118,60 @@
                 }
             }
             
-                Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply> Regulus.Samples.Helloworld.Common.IGreeter.SayHello(Regulus.Samples.Helloworld.Common.HelloRequest _1)
+                void Regulus.Samples.Chat1.Common.IPlayer.Send(System.String _1)
                 {                    
 
-                    
-    var returnValue = new Regulus.Remote.Value<Regulus.Samples.Helloworld.Common.HelloReply>();
-    
-
-                    var info = typeof(Regulus.Samples.Helloworld.Common.IGreeter).GetMethod("SayHello");
+                    Regulus.Remote.IValue returnValue = null;
+                    var info = typeof(Regulus.Samples.Chat1.Common.IPlayer).GetMethod("Send");
                     _CallMethodEvent(info , new object[] {_1} , returnValue);                    
-                    return returnValue;
+                    
+                }
+
+                
+ 
+
+                void Regulus.Samples.Chat1.Common.IPlayer.Quit()
+                {                    
+
+                    Regulus.Remote.IValue returnValue = null;
+                    var info = typeof(Regulus.Samples.Chat1.Common.IPlayer).GetMethod("Quit");
+                    _CallMethodEvent(info , new object[] {} , returnValue);                    
+                    
                 }
 
                 
 
 
+            readonly Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatter> _Chatters;
+            Regulus.Remote.INotifier<Regulus.Samples.Chat1.Common.IChatter> Regulus.Samples.Chat1.Common.IPlayer.Chatters { get{ return _Chatters;} }
 
+                public Regulus.Remote.GhostEventHandler _PublicMessageEvent = new Regulus.Remote.GhostEventHandler();
+                event System.Action<System.String,System.String> Regulus.Samples.Chat1.Common.IPlayer.PublicMessageEvent
+                {
+                    add { 
+                            var id = _PublicMessageEvent.Add(value);
+                            _AddEventEvent(typeof(Regulus.Samples.Chat1.Common.IPlayer).GetEvent("PublicMessageEvent"),id);
+                        }
+                    remove { 
+                                var id = _PublicMessageEvent.Remove(value);
+                                _RemoveEventEvent(typeof(Regulus.Samples.Chat1.Common.IPlayer).GetEvent("PublicMessageEvent"),id);
+                            }
+                }
+                
+
+                public Regulus.Remote.GhostEventHandler _PrivateMessageEvent = new Regulus.Remote.GhostEventHandler();
+                event System.Action<System.String,System.String> Regulus.Samples.Chat1.Common.IPlayer.PrivateMessageEvent
+                {
+                    add { 
+                            var id = _PrivateMessageEvent.Add(value);
+                            _AddEventEvent(typeof(Regulus.Samples.Chat1.Common.IPlayer).GetEvent("PrivateMessageEvent"),id);
+                        }
+                    remove { 
+                                var id = _PrivateMessageEvent.Remove(value);
+                                _RemoveEventEvent(typeof(Regulus.Samples.Chat1.Common.IPlayer).GetEvent("PrivateMessageEvent"),id);
+                            }
+                }
+                
             
         }
     }

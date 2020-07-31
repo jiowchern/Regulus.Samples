@@ -12,7 +12,7 @@ namespace Regulus.Samples.Chat1.Server
         {
             var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
-            var room = new Regulus.Samples.Chat1.Room();
+            var room = new Regulus.Samples.Chat1.Service();
             var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(room, port, protocol);            
             var console = new Console(service);
             console.Run();

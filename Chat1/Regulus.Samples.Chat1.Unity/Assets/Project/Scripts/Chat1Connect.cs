@@ -1,12 +1,9 @@
 ﻿using Regulus.Remote;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 
 public class Chat1Connect : MonoBehaviour
-{
+{ 
     public UnityEngine.GameObject Panel;
     public UnityEngine.UI.InputField IP;
     public UnityEngine.UI.InputField Port;

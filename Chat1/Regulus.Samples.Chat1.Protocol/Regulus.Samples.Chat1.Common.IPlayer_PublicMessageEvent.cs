@@ -2,18 +2,18 @@
     using System;  
     using System.Collections.Generic;
     
-    namespace Regulus.Samples.Chat1.Common.Invoker.IBroadcastable 
+    namespace Regulus.Samples.Chat1.Common.Invoker.IPlayer 
     { 
-        public class MessageEvent : Regulus.Remote.IEventProxyCreator
+        public class PublicMessageEvent : Regulus.Remote.IEventProxyCreator
         {
 
             Type _Type;
             string _Name;
             
-            public MessageEvent()
+            public PublicMessageEvent()
             {
-                _Name = "MessageEvent";
-                _Type = typeof(Regulus.Samples.Chat1.Common.IBroadcastable);                   
+                _Name = "PublicMessageEvent";
+                _Type = typeof(Regulus.Samples.Chat1.Common.IPlayer);                   
             
             }
             Delegate Regulus.Remote.IEventProxyCreator.Create(long soul_id,int event_id,long handler_id, Regulus.Remote.InvokeEventCallabck invoke_Event)

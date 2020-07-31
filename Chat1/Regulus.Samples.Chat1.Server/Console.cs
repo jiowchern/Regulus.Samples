@@ -3,9 +3,9 @@ namespace Regulus.Samples.Chat1.Server
 {
     class Console : Regulus.Utility.WindowConsole
     {
-        private Service _Service;
+        private Remote.Soul.Service _Service;
 
-        public Console(Service service)
+        public Console(Remote.Soul.Service service)
         {
             this._Service = service;
         }

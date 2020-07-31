@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -19,6 +19,7 @@
     <ProjectReference Include="..\..\Regulus\Regulus.Utility\Regulus.Utility.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Chat1.Protocol\Regulus.Samples.Chat1.Protocol.csproj" />
+    <ProjectReference Include="..\Regulus.Samples.Chat1\Regulus.Samples.Chat1.csproj" />
   </ItemGroup>
 
 </Project>

@@ -54,9 +54,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Remote.Soul", "Regu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Remote.Server", "Regulus\Regulus.Remote.Server\Regulus.Remote.Server.csproj", "{E0C6BC68-A627-48F1-933F-24840C1CD859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regulus.Samples.Chat1.Server", "Chat1\Regulus.Samples.Chat1.Server\Regulus.Samples.Chat1.Server.csproj", "{ED3D60B7-D17B-4385-AD3F-09CE547AF5E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Server", "Chat1\Regulus.Samples.Chat1.Server\Regulus.Samples.Chat1.Server.csproj", "{ED3D60B7-D17B-4385-AD3F-09CE547AF5E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regulus.Samples.Chat1.Client", "Chat1\Regulus.Samples.Chat1.Client\Regulus.Samples.Chat1.Client.csproj", "{6D2F86F0-F369-4356-AB9F-A6358641821D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Client", "Chat1\Regulus.Samples.Chat1.Client\Regulus.Samples.Chat1.Client.csproj", "{6D2F86F0-F369-4356-AB9F-A6358641821D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regulus.Samples.Chat1", "Chat1\Regulus.Samples.Chat1\Regulus.Samples.Chat1.csproj", "{D2C8DFA6-5355-4AE4-9814-E113050143C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -272,6 +274,18 @@ Global
 		{6D2F86F0-F369-4356-AB9F-A6358641821D}.Release|x64.Build.0 = Release|Any CPU
 		{6D2F86F0-F369-4356-AB9F-A6358641821D}.Release|x86.ActiveCfg = Release|Any CPU
 		{6D2F86F0-F369-4356-AB9F-A6358641821D}.Release|x86.Build.0 = Release|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Debug|x64.Build.0 = Debug|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Debug|x86.Build.0 = Debug|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Release|x64.ActiveCfg = Release|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Release|x64.Build.0 = Release|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Release|x86.ActiveCfg = Release|Any CPU
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -294,6 +308,7 @@ Global
 		{E0C6BC68-A627-48F1-933F-24840C1CD859} = {BA7380D3-00A0-4E1A-B22C-626126666BAA}
 		{ED3D60B7-D17B-4385-AD3F-09CE547AF5E2} = {F9C2FC4D-277B-4A86-AECC-4930057A1278}
 		{6D2F86F0-F369-4356-AB9F-A6358641821D} = {F9C2FC4D-277B-4A86-AECC-4930057A1278}
+		{D2C8DFA6-5355-4AE4-9814-E113050143C9} = {F9C2FC4D-277B-4A86-AECC-4930057A1278}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEFCB5E0-9D6F-4210-8DFB-13C0C24DA12A}
