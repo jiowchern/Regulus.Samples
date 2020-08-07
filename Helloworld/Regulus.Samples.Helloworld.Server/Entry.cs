@@ -1,4 +1,4 @@
-﻿using Regulus.Utiliey;
+﻿
 using Regulus.Remote;
 using Regulus.Samples.Helloworld.Common;
 using System;
@@ -7,7 +7,7 @@ namespace Regulus.Samples.Helloworld.Server
 {
     internal class Entry : Regulus.Remote.IEntry 
     {
-        public volatile bool  Enable;
+        public volatile bool Enable;
 
         readonly Greeter _Greeter;
         public Entry()
@@ -28,15 +28,6 @@ namespace Regulus.Samples.Helloworld.Server
         {
             Enable = false;
         }
-
-        void IBootable.Launch()
-        {
-            Console.WriteLine("Server launch.");
-        }
-
-        void IBootable.Shutdown()
-        {
-            Console.WriteLine("Server shutdown.");
-        }
+        
     }
 }

@@ -13,13 +13,15 @@ namespace Regulus.Samples.Helloworld.Server
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
 
             var entry = new Entry();
-            var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(entry, port, protocol);
-            service.Launch();
+            
+            var service = Regulus.Remote.Server.Provider.CreateTcp(Regulus.Remote.Server.Provider.CreateService(entry , protocol));
+            service.Bind(port);
+            System.Console.WriteLine($"start.");
             while (entry.Enable)
             {
                 System.Threading.Thread.Sleep(0);
             }
-            service.Shutdown();
+            service.Close();
             System.Console.WriteLine($"Press any key to end.");
             System.Console.ReadKey();
         }

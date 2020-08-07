@@ -16,13 +16,9 @@ namespace Regulus.Samples.Helloworld.Client
             var port = int.Parse(args[1]);
             var protocolAsm = System.Reflection.Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
-            var agent = Regulus.Remote.Client.AgentProvider.CreateTcp(protocolAsm) ;
-            agent.Launch();
-           
-            agent.QueryNotifier<IConnect>().Supply += (connect) => {
-                System.Console.WriteLine($"Connect to {ip}:{port} ... ");
-                connect.Connect(new IPEndPoint(ip, port));
-            };
+            var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
+            var tcp = Regulus.Remote.Client.Provider.CreateTcp(agent);
+            tcp.Connect(new IPEndPoint(ip, port)).Wait();
             agent.QueryNotifier<Common.IGreeter>().Supply += (greeter) => {
                 String user = "you";
                 greeter.SayHello(new HelloRequest() { Name = user}).OnValue += _GetReply;
@@ -32,8 +28,7 @@ namespace Regulus.Samples.Helloworld.Client
                 System.Threading.Thread.Sleep(0);
                 agent.Update();
             }
-            
-            agent.Shutdown();
+            tcp.Disconnect().Wait();
             System.Console.WriteLine($"Press any key to end.");
             System.Console.ReadKey();
         }
