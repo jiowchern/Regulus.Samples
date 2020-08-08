@@ -1,47 +1,67 @@
 ﻿using Regulus.Remote;
+using Regulus.Remote.Ghost;
+using Regulus.Remote.Standalone;
+using Regulus.Samples.Chat1.Common;
 using System;
 
 namespace Regulus.Samples.Chat1.Client
 {
+    class StandaloneConsole : Console
+    {
+        readonly Regulus.Remote.Standalone.IService _Service;
+        public StandaloneConsole(Regulus.Remote.Standalone.IService service, INotifierQueryable notifierQueryable) : base(notifierQueryable)
+        {
+            _Service = service;
+        }
+        protected override void _Update()
+        {
+            _Service.Update();
+
+            base._Update();
+        }
+    }
     class Console : Regulus.Utility.WindowConsole
     {
-        private readonly IAgent _Agent;
+        
         readonly Regulus.Utility.StatusMachine _Machine;
-        public Console(IAgent agent)
-        {
-            this._Agent = agent;
+        readonly Remote.INotifierQueryable _Agent;
+
+        public Console(Remote.INotifierQueryable agent)
+        {            
             _Machine = new Utility.StatusMachine();
+            _Agent = agent;
         }
 
         protected override void _Launch()
         {
-            _Agent.Launch();
-            _Agent.QueryNotifier<IConnect>().Supply += _ToConnect;
-            _Agent.QueryNotifier<IOnline>().Supply += _ToOnline;
+
+            _Agent.QueryNotifier<ILogin>().Supply += _ToLogin;
+            _Agent.QueryNotifier<IPlayer>().Supply += _ToChat;
+            
         }
         protected override void _Shutdown()
         {
-            _Agent.QueryNotifier<IOnline>().Supply -= _ToOnline;
-            _Agent.QueryNotifier<IConnect>().Supply -= _ToConnect;
-            _Machine.Termination();
-            _Agent.Shutdown();
+            _Agent.QueryNotifier<ILogin>().Supply -= _ToLogin;
+            _Agent.QueryNotifier<IPlayer>().Supply -= _ToChat;
+            
+            _Machine.Termination();            
         }
 
-        private void _ToConnect(IConnect connect)
+        private void _ToLogin(ILogin login)
         {
-            Utility.IStatus status = new ConnectStatus(connect, Command);
+            var status = new Regulus.Samples.Chat1.Client.LoginStatus(login, Command);
             _Machine.Push(status);
         }
-
-        private void _ToOnline(IOnline online)
+        private void _ToChat(IPlayer player)
         {
-            Utility.IStatus status = new OnlineStatus(_Agent, online, Command);
+            var status = new ChatroomStatus(player, Command);
+
             _Machine.Push(status);
         }
 
         protected override void _Update()
         {
-            _Agent.Update();
+            
             _Machine.Update();
         }
     }

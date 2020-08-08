@@ -1,10 +1,5 @@
-﻿
-using Regulus.Utiliey;
-using Regulus.Remote;
-using Regulus.Samples.Chat1.Common;
-using System;
+﻿using Regulus.Remote;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Regulus.Samples.Chat1
 {
@@ -28,14 +23,9 @@ namespace Regulus.Samples.Chat1
             _User.Add(user);
         }
 
-        void IBootable.Launch()
-        {
-            
-        }
-
-        void IBootable.Shutdown()
+        ~Service()
         {
             _Room.Dispose();
-        }
+        }        
     }
 }

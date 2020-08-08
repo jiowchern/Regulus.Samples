@@ -12,12 +12,12 @@ namespace Regulus.Samples.Chat1.Server
 
         protected override void _Launch()
         {
-            _Service.Launch();
+            
         }
 
         protected override void _Shutdown()
         {
-            _Service.Shutdown();
+            
         }
 
         protected override void _Update()

@@ -36,20 +36,23 @@ namespace Regulus.Samples.Chat1.Client
                          from interfaceType in type.GetInterfaces()
                          where type.IsClass &&  interfaceType == typeof(Regulus.Remote.IEntry)
                          select System.Activator.CreateInstance(type) as Regulus.Remote.IEntry;
-            var entry = entrys.Single();
-            entry.Launch();
-            var agent = Regulus.Remote.Client.AgentProvider.CreateStandalone(protocol, entry);
-            var console = new Console(agent);
+            var entry = entrys.Single();           
+            var service = Regulus.Remote.Client.Provider.CreateService(protocol, entry);
+            var agent = service.CreateNotifierQueryer();
+            var console = new StandaloneConsole(service,agent);
             console.Run();
-            entry.Shutdown();
+            service.DestroyNotifierQueryer(agent);
+            service.Dispose();
+
+
         }
 
         private static void _RunRemote(FileInfo protocolfile)
         {
-            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
-            var agent = Regulus.Remote.Client.AgentProvider.CreateTcp(protocolAsm);
+            /*var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
+            var agent = Regulus.Remote.Client.Provider.CreateTcp(protocolAsm);
             var console = new Console(agent);
-            console.Run();
+            console.Run();*/
         }
     }
 }
