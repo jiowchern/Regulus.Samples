@@ -1,5 +1,9 @@
 ﻿using Regulus.Remote;
+using Regulus.Remote.Client.Tcp;
+using Regulus.Samples.Chat1.Common;
+using System;
 using System.Net;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Chat1Connect : MonoBehaviour
@@ -8,21 +12,30 @@ public class Chat1Connect : MonoBehaviour
     public UnityEngine.UI.InputField IP;
     public UnityEngine.UI.InputField Port;
     public UnityEngine.UI.Text Message;
-
+    
     System.Action _OnConnect;
 
     public Chat1Connect()
     {
         _OnConnect = () => { };
+        
     }
     void Start()
     {        
         var agent = Chat1Agent.FindAgent();
         if (agent == null)
             return;
-        // regist IConnect
-        agent.QueryNotifier<IConnect>().Supply += _Show;
-        agent.QueryNotifier<IConnect>().Unsupply += _Hide;
+
+        var connecter = Regulus.Remote.Client.Provider.CreateTcp(agent);
+
+        System.Action onConnect = () => {
+            // call connect to connect ...
+            _GetResult(connecter.Connect(_GetEndPoint()));
+        };
+        _OnConnect = onConnect;
+
+        agent.QueryNotifier<IPlayer>().Supply += _Hide;
+        _Show();
     }
 
     private void OnDestroy()
@@ -30,33 +43,35 @@ public class Chat1Connect : MonoBehaviour
         var agent = Chat1Agent.FindAgent();
         if (agent == null)
             return;
-        // unregist IConnect
-        agent.QueryNotifier<IConnect>().Supply -= _Show;
-        agent.QueryNotifier<IConnect>().Unsupply -= _Hide;
+        agent.QueryNotifier<IPlayer>().Supply -= _Hide;
+
+
     }
 
-    private void _Show(IConnect connect)
+    private void _GetResult(Task<IOnlineable> task)
+    {
+        
+        /*var online = task.Result;
+        if (online != null)
+            _Hide();
+        else
+            Message.text = "connect fail";*/
+    }
+
+    private void _Show()
     {
         Panel.SetActive(true);
-        System.Action onConnect = () => {
-            // call connect to connect ...
-            connect.Connect(_GetEndPoint()).OnValue += _ConnectResult;
-        };
-        _OnConnect = onConnect;
+        
     }
 
-    private void _ConnectResult(bool success)
-    {
-        if (!success)
-            Message.text = "connect fail";
-    }
+    
 
     private IPEndPoint _GetEndPoint()
     {
         return new IPEndPoint(IPAddress.Parse(IP.text), int.Parse(Port.text));
     }
 
-    private void _Hide(IConnect obj)
+    private void _Hide(IPlayer player)
     {
         Panel.SetActive(false);
 

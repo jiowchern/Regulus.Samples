@@ -18,9 +18,11 @@ namespace Regulus.Samples.Chat1
             binder.BreakEvent += () =>
             {
                 user.Dispose();
-                _User.Remove(user);
+                lock (_User)
+                    _User.Remove(user);
             };
-            _User.Add(user);
+            lock(_User)
+                _User.Add(user);
         }
 
         ~Service()

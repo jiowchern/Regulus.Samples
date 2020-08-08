@@ -37,7 +37,7 @@ namespace Regulus.Samples.Chat1.Client
                          where type.IsClass &&  interfaceType == typeof(Regulus.Remote.IEntry)
                          select System.Activator.CreateInstance(type) as Regulus.Remote.IEntry;
             var entry = entrys.Single();           
-            var service = Regulus.Remote.Client.Provider.CreateService(protocol, entry);
+            var service = Regulus.Remote.Standalone.Provider.CreateService(protocol, entry);
             var agent = service.CreateNotifierQueryer();
             var console = new StandaloneConsole(service,agent);
             console.Run();

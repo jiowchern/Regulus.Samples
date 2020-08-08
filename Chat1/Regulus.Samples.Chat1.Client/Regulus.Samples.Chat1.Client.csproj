@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Regulus\Regulus.Network\Regulus.Network.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Remote.Client\Regulus.Remote.Client.csproj" />
+    <ProjectReference Include="..\..\Regulus\Regulus.Remote.Standalone\Regulus.Remote.Standalone.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Remote\Regulus.Remote.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Serialization\Regulus.Serialization.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Utility\Regulus.Utility.csproj" />

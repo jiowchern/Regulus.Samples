@@ -3,5 +3,10 @@
         <Exec Command="del $(SolutionDir)Chat1\Regulus.Samples.Chat1.Protocol\*.cs /q"/>
         <Exec Command="dotnet run --project $(SolutionDir)/Regulus/Regulus.Application.Protocol.CodeWriter  --common $(TargetPath) --output $(SolutionDir)\Chat1\Regulus.Samples.Chat1.Protocol" />
     </Target>
+
+    <Target Condition="'$(ProjectName)'=='Regulus.Samples.Chat1.Protocol' And '$(SolutionDir)'!='*Undefined*'" Name="CopyToUnity" AfterTargets="Build">
+        <Exec Command="dotnet publish --output $(SolutionDir)/Chat1/Regulus.Samples.Chat1.Unity/Assets/Project/Server.Library $(SolutionDir)/Chat1/Regulus.Samples.Chat1.Protocol" />
+        <Exec Command="dotnet publish --output $(SolutionDir)/Chat1/Regulus.Samples.Chat1.Unity/Assets/Project/Server.Library $(SolutionDir)/Regulus/Regulus.Remote.Client" />
+    </Target>
    
 </Project>

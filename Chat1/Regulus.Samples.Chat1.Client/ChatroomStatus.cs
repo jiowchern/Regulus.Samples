@@ -73,13 +73,14 @@ namespace Regulus.Samples.Chat1.Client
 
         private void _ChatterLeave(IChatter chatter)
         {
+            _Command.Unregister($"to-{chatter.Name.Value}");
             System.Console.WriteLine($"{chatter.Name.Value} leave.");
-            _Command.Register<string>($"to.{chatter.Name.Value}", chatter.Whisper);
+            
         }
 
         private void _ChatterEnter(IChatter chatter)
         {
-            _Command.Unregister($"to.{chatter.Name.Value}");
+            _Command.Register<string>($"to-{chatter.Name.Value}", chatter.Whisper);
             System.Console.WriteLine($"{chatter.Name.Value} enter.");
         }
 

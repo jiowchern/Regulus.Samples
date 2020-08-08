@@ -7,15 +7,17 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "Regulus.Samples.Chat1.Protocol/1.0.0": {
+      "Regulus.Remote.Client/0.1.7.3": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
+          "Regulus.Network": "0.1.7.3",
           "Regulus.Remote": "0.1.7.3",
-          "Regulus.Samples.Chat1.Common": "1.0.0",
-          "Regulus.Serialization": "0.1.7.3"
+          "Regulus.Remote.Ghost": "0.1.7.3",
+          "Regulus.Serialization": "0.1.7.3",
+          "Regulus.Utility": "0.1.7.3"
         },
         "runtime": {
-          "Regulus.Samples.Chat1.Protocol.dll": {}
+          "Regulus.Remote.Client.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -41,12 +43,14 @@
           "Regulus.Remote.dll": {}
         }
       },
-      "Regulus.Samples.Chat1.Common/1.0.0": {
+      "Regulus.Remote.Ghost/0.1.7.3": {
         "dependencies": {
-          "Regulus.Remote": "0.1.7.3"
+          "Regulus.Network": "0.1.7.3",
+          "Regulus.Remote": "0.1.7.3",
+          "Regulus.Utility": "0.1.7.3"
         },
         "runtime": {
-          "Regulus.Samples.Chat1.Common.dll": {}
+          "Regulus.Remote.Ghost.dll": {}
         }
       },
       "Regulus.Serialization/0.1.7.3": {
@@ -65,7 +69,7 @@
     }
   },
   "libraries": {
-    "Regulus.Samples.Chat1.Protocol/1.0.0": {
+    "Regulus.Remote.Client/0.1.7.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -94,7 +98,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Samples.Chat1.Common/1.0.0": {
+    "Regulus.Remote.Ghost/0.1.7.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

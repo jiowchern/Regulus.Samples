@@ -14,14 +14,22 @@ namespace Regulus.Samples.Chat1
         public ItemNotifier()
         {
             _Gpis = new List<T>();
+            _Supply += _Empty;
+            _Unsupply += _Empty;
         }
+
+        private void _Empty(T obj)
+        {}
+
         public void Add(T item)
         {
             _Gpis.Add(item);
+            _Supply(item);
         }
         public void Remove(T item)
         {
             _Gpis.Remove(item);
+            _Unsupply(item);
         }
         event Action<T> _Supply;
         event Action<T> INotifier<T>.Supply
