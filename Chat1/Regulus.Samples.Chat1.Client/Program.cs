@@ -49,10 +49,12 @@ namespace Regulus.Samples.Chat1.Client
 
         private static void _RunRemote(FileInfo protocolfile)
         {
-            /*var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
-            var agent = Regulus.Remote.Client.Provider.CreateTcp(protocolAsm);
-            var console = new Console(agent);
-            console.Run();*/
+            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
+            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
+            var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
+            var connecter = Regulus.Remote.Client.Provider.CreateTcp(agent);
+            var console = new RemoteConsole(connecter  , agent);
+            console.Run();
         }
     }
 }

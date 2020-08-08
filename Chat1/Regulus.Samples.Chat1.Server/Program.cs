@@ -10,12 +10,14 @@ namespace Regulus.Samples.Chat1.Server
         /// <param name="port"></param>
         static void Main(System.IO.FileInfo protocolfile,int port)
         {
-            /*var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
+            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
             var room = new Regulus.Samples.Chat1.Service();
-            var service = Regulus.Remote.Server.ServiceProvider.CreateTcp(room, port, protocol);            
-            var console = new Console(service);
-            console.Run();*/
+            var listener = Regulus.Remote.Server.Provider.CreateTcp(Regulus.Remote.Server.Provider.CreateService(room , protocol));
+            listener.Bind(port);
+            var console = new Console();            
+            console.Run();
+            listener.Close();
         }
     }
 }
