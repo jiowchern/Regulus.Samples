@@ -23,6 +23,8 @@ namespace Regulus.Samples.Helloworld.Server
                 System.Threading.Thread.Sleep(0);
             }
             listener.Close();
+            service.Dispose();
+
             System.Console.WriteLine($"Press any key to end.");
             System.Console.ReadKey();
         }

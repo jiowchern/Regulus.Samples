@@ -21,7 +21,7 @@ namespace Regulus.Samples.Chat1.Client
             }
             else
             {
-                System.Console.WriteLine("Remove mode.");
+                System.Console.WriteLine("Remote mode.");
                 _RunRemote(protocolfile);
             }
 
@@ -34,14 +34,16 @@ namespace Regulus.Samples.Chat1.Client
             var serviceAsm = System.Reflection.Assembly.LoadFrom(servicefile.FullName);
             var entrys = from type in serviceAsm.GetExportedTypes()
                          from interfaceType in type.GetInterfaces()
-                         where type.IsClass &&  interfaceType == typeof(Regulus.Remote.IEntry)
+                         where interfaceType == typeof(Regulus.Remote.IEntry)
                          select System.Activator.CreateInstance(type) as Regulus.Remote.IEntry;
             var entry = entrys.Single();           
             var service = Regulus.Remote.Standalone.Provider.CreateService(protocol, entry);
-            var agent = service.CreateNotifierQueryer();
-            var console = new StandaloneConsole(service,agent);
+            var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
+            service.Join(agent);            
+
+            var console = new StandaloneConsole(agent);
             console.Run();
-            service.DestroyNotifierQueryer(agent);
+            service.Leave(agent);
             service.Dispose();
 
 

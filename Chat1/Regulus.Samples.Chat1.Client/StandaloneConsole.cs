@@ -1,18 +1,19 @@
 ﻿using Regulus.Remote;
+using Regulus.Remote.Ghost;
 
 namespace Regulus.Samples.Chat1.Client
 {
     class StandaloneConsole : Console
     {
-        readonly Regulus.Remote.Standalone.IService _Service;
-        public StandaloneConsole(Regulus.Remote.Standalone.IService service, INotifierQueryable notifierQueryable) : base(notifierQueryable)
+        private readonly IAgent _Agent;
+
+        public StandaloneConsole(IAgent agent) : base(agent)
         {
-            _Service = service;
+            this._Agent = agent;
         }
         protected override void _Update()
         {
-            _Service.Update();
-
+            _Agent.Update();
             base._Update();
         }
     }
