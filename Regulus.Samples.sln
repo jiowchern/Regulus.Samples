@@ -22,6 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{07033894-21D8-43F5-A66B-D7819237EB83}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\docker.yml = .github\workflows\docker.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Protocol", "Chat1\Regulus.Samples.Chat1.Protocol\Regulus.Samples.Chat1.Protocol.csproj", "{C0496FE6-ED46-48AC-94A3-D3ACFA425CC6}"
