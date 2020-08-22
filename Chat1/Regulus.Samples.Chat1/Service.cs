@@ -12,7 +12,7 @@ namespace Regulus.Samples.Chat1
             _Room = new Room();
             _User = new List<User>();
         }
-        void IBinderProvider.AssignBinder(IBinder binder)
+        void IBinderProvider.AssignBinder(IBinder binder,object state)
         {
             User user = new User(binder, _Room);
             binder.BreakEvent += () =>

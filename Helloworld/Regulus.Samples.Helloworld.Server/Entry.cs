@@ -16,7 +16,7 @@ namespace Regulus.Samples.Helloworld.Server
             Enable = true;
         }
 
-        void IBinderProvider.AssignBinder(IBinder binder)
+        void IBinderProvider.AssignBinder(IBinder binder,object state)
         {
             // IBinder is what you get when your client completes the connection.
             binder.BreakEvent += _End;
