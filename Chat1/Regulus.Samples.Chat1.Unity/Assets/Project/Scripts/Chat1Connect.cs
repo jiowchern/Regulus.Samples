@@ -50,12 +50,17 @@ public class Chat1Connect : MonoBehaviour
 
     private void _GetResult(Task<IOnlineable> task)
     {
-        
+        task.ContinueWith(_Result);
         /*var online = task.Result;
         if (online != null)
             _Hide();
         else
             Message.text = "connect fail";*/
+    }
+
+    private void _Result(Task<IOnlineable> arg1)
+    {
+        
     }
 
     private void _Show()

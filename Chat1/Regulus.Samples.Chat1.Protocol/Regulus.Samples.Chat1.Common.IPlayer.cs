@@ -14,9 +14,7 @@
             
             
             public CIPlayer(long id, bool have_return )
-            {                
-                //Chatters
-_Chatters = new Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatter>((p) => _AddSupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"), p), (p) => _RemoveSupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"),p), (p) => _AddUnsupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"), p), (p) => _RemoveUnsupplyNoitfierEvent(typeof(IPlayer).GetProperty("Chatters"),p));
+            {                                
                 _HaveReturn = have_return ;
                 _GhostIdName = id; 
                 
@@ -60,62 +58,7 @@ _Chatters = new Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatt
                 add { this._RemoveEventEvent += value; }
                 remove { this._RemoveEventEvent -= value; }
             }
-            event Regulus.Remote.PropertyNotifierCallback _AddSupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.AddSupplyNoitfierEvent
-            {
-
-                add
-                {
-                    _AddSupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _AddSupplyNoitfierEvent -= value;
-                }
-            }
-
-            event Regulus.Remote.PropertyNotifierCallback _RemoveSupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.RemoveSupplyNoitfierEvent
-            {
-                add
-                {
-                    _RemoveSupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _RemoveSupplyNoitfierEvent -= value;
-                }
-            }
-
-            event Regulus.Remote.PropertyNotifierCallback _AddUnsupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.AddUnsupplyNoitfierEvent
-            {
-                add
-                {
-                    _AddUnsupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _AddUnsupplyNoitfierEvent -= value;
-                }
-            }
-
-            event Regulus.Remote.PropertyNotifierCallback _RemoveUnsupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.RemoveUnsupplyNoitfierEvent
-            {
-                add
-                {
-                    _RemoveUnsupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _RemoveUnsupplyNoitfierEvent -= value;
-                }
-            }
+            
             
                 void Regulus.Samples.Chat1.Common.IPlayer.Send(System.String _1)
                 {                    
@@ -141,8 +84,8 @@ _Chatters = new Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatt
                 
 
 
-            readonly Regulus.Remote.GhostNotifier<Regulus.Samples.Chat1.Common.IChatter> _Chatters;
-            Regulus.Remote.INotifier<Regulus.Samples.Chat1.Common.IChatter> Regulus.Samples.Chat1.Common.IPlayer.Chatters { get{ return _Chatters;} }
+                    public Regulus.Remote.Notifier<Regulus.Samples.Chat1.Common.IChatter> _Chatters= new Regulus.Remote.Notifier<Regulus.Samples.Chat1.Common.IChatter>();
+                    Regulus.Remote.Notifier<Regulus.Samples.Chat1.Common.IChatter> Regulus.Samples.Chat1.Common.IPlayer.Chatters { get{ return _Chatters;} }
 
                 public Regulus.Remote.GhostEventHandler _PublicMessageEvent = new Regulus.Remote.GhostEventHandler();
                 event System.Action<System.String,System.String> Regulus.Samples.Chat1.Common.IPlayer.PublicMessageEvent

@@ -39,8 +39,8 @@ namespace Regulus.Samples.Chat1.Client
             _Command.Unregister("send");
             _Command.Unregister("exitroom");
 
-            player.Chatters.Supply -= _ChatterEnter;
-            player.Chatters.Unsupply -= _ChatterLeave;
+            player.Chatters.Base.Supply -= _ChatterEnter;
+            player.Chatters.Base.Unsupply -= _ChatterLeave;
 
             player.PrivateMessageEvent -= _PrivateMessage;
             player.PublicMessageEvent -= _PublicMessage;
@@ -54,8 +54,8 @@ namespace Regulus.Samples.Chat1.Client
             player.PrivateMessageEvent += _PrivateMessage;
             player.PublicMessageEvent += _PublicMessage;
 
-            player.Chatters.Supply += _ChatterEnter;
-            player.Chatters.Unsupply += _ChatterLeave;
+            player.Chatters.Base.Supply += _ChatterEnter;
+            player.Chatters.Base.Unsupply += _ChatterLeave;
 
             _Command.Register<string>("send", player.Send);
             _Command.Register("exitroom", player.Quit);

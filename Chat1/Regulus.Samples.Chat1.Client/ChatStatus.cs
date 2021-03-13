@@ -20,8 +20,8 @@ namespace Regulus.Samples.Chat1.Client
 
         void IStatus.Enter()
         {
-            _Player.Chatters.Supply += _AddChatter;
-            _Player.Chatters.Unsupply += _RemoveChatter;
+            _Player.Chatters.Base.Supply += _AddChatter;
+            _Player.Chatters.Base.Unsupply += _RemoveChatter;
             _RegistPlayer();
         }
 
@@ -32,8 +32,8 @@ namespace Regulus.Samples.Chat1.Client
         void IStatus.Leave()
         {
             _UnegistPlayer();
-            _Player.Chatters.Supply -= _AddChatter;
-            _Player.Chatters.Unsupply -= _RemoveChatter;
+            _Player.Chatters.Base.Supply -= _AddChatter;
+            _Player.Chatters.Base.Unsupply -= _RemoveChatter;
         }
 
         private void _UnegistPlayer()

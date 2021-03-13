@@ -14,8 +14,7 @@
             
             
             public CIChatter(long id, bool have_return )
-            {                
-                //Name
+            {                                
                 _HaveReturn = have_return ;
                 _GhostIdName = id; 
                 
@@ -59,62 +58,7 @@
                 add { this._RemoveEventEvent += value; }
                 remove { this._RemoveEventEvent -= value; }
             }
-            event Regulus.Remote.PropertyNotifierCallback _AddSupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.AddSupplyNoitfierEvent
-            {
-
-                add
-                {
-                    _AddSupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _AddSupplyNoitfierEvent -= value;
-                }
-            }
-
-            event Regulus.Remote.PropertyNotifierCallback _RemoveSupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.RemoveSupplyNoitfierEvent
-            {
-                add
-                {
-                    _RemoveSupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _RemoveSupplyNoitfierEvent -= value;
-                }
-            }
-
-            event Regulus.Remote.PropertyNotifierCallback _AddUnsupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.AddUnsupplyNoitfierEvent
-            {
-                add
-                {
-                    _AddUnsupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _AddUnsupplyNoitfierEvent -= value;
-                }
-            }
-
-            event Regulus.Remote.PropertyNotifierCallback _RemoveUnsupplyNoitfierEvent;
-            event Regulus.Remote.PropertyNotifierCallback Regulus.Remote.IGhost.RemoveUnsupplyNoitfierEvent
-            {
-                add
-                {
-                    _RemoveUnsupplyNoitfierEvent += value;
-                }
-
-                remove
-                {
-                    _RemoveUnsupplyNoitfierEvent -= value;
-                }
-            }
+            
             
                 void Regulus.Samples.Chat1.Common.IChatter.Whisper(System.String _1)
                 {                    
@@ -128,8 +72,8 @@
                 
 
 
-                public Regulus.Remote.Property<System.String> _Name= new Regulus.Remote.Property<System.String>();
-                Regulus.Remote.Property<System.String> Regulus.Samples.Chat1.Common.IChatter.Name { get{ return _Name;} }
+                    public Regulus.Remote.Property<System.String> _Name= new Regulus.Remote.Property<System.String>();
+                    Regulus.Remote.Property<System.String> Regulus.Samples.Chat1.Common.IChatter.Name { get{ return _Name;} }
 
             
         }

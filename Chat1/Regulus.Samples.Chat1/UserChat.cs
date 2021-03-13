@@ -13,9 +13,9 @@ namespace Regulus.Samples.Chat1
         private Room _Room;
         readonly Chatter _Chatter;
         readonly string _Name;
-        readonly ItemNotifier<IChatter> _Chatters;
+        readonly Regulus.Remote.NotifiableCollection<IChatter> _Chatters;
 
-        INotifier<IChatter> IPlayer.Chatters => _Chatters;
+        Regulus.Remote.Notifier<IChatter> IPlayer.Chatters => new Remote.Notifier<IChatter>(_Chatters);
 
         string IMessageable.Name => _Name;
 
@@ -25,7 +25,7 @@ namespace Regulus.Samples.Chat1
             _Binder = binder;
             _Room = room;
             _Name = name;
-            _Chatters = new ItemNotifier<IChatter>();
+            _Chatters = new Regulus.Remote.NotifiableCollection<IChatter>();
             _Chatter = _Room.RegistChatter(this);
         }
 
@@ -71,7 +71,7 @@ namespace Regulus.Samples.Chat1
 
         void IBootable.Launch()
         {
-            _Chatters.Clear();
+            _Chatters.Items.Clear();
             if (_Chatter == null)
             {
                 DoneEvent();
@@ -87,13 +87,13 @@ namespace Regulus.Samples.Chat1
         {
             var whispeableChatter = _Chatters.Items.FirstOrDefault(i => i.Name == chatter.Messager.Name);
             if (whispeableChatter != null)
-                _Chatters.Remove(whispeableChatter);
+                _Chatters.Items.Remove(whispeableChatter);
         }
 
         private void _Add(Chatter chatter)
         {
             var whispeableChatter = new WhispeableChatter(_Chatter, chatter);
-            _Chatters.Add(whispeableChatter);
+            _Chatters.Items.Add(whispeableChatter);
         }
 
         void IBootable.Shutdown()

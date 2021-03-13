@@ -9,7 +9,7 @@ namespace Regulus.Samples.Chat1
         readonly List<T> _Gpis;
 
         public IReadOnlyCollection<T> Items => _Gpis;
-        T[] INotifier<T>.Ghosts => _Gpis.ToArray();
+        
 
         public ItemNotifier()
         {

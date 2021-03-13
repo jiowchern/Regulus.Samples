@@ -10,9 +10,9 @@
       "Regulus.Samples.Chat1.Protocol/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Regulus.Remote": "0.1.7.3",
+          "Regulus.Remote": "0.1.8.1",
           "Regulus.Samples.Chat1.Common": "1.0.0",
-          "Regulus.Serialization": "0.1.7.3"
+          "Regulus.Serialization": "0.1.8.1"
         },
         "runtime": {
           "Regulus.Samples.Chat1.Protocol.dll": {}
@@ -24,18 +24,18 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
-      "Regulus.Network/0.1.7.3": {
+      "Regulus.Network/0.1.8.1": {
         "dependencies": {
-          "Regulus.Utility": "0.1.7.3"
+          "Regulus.Utility": "0.1.8.1"
         },
         "runtime": {
           "Regulus.Network.dll": {}
         }
       },
-      "Regulus.Remote/0.1.7.3": {
+      "Regulus.Remote/0.1.8.1": {
         "dependencies": {
-          "Regulus.Network": "0.1.7.3",
-          "Regulus.Utility": "0.1.7.3"
+          "Regulus.Network": "0.1.8.1",
+          "Regulus.Utility": "0.1.8.1"
         },
         "runtime": {
           "Regulus.Remote.dll": {}
@@ -43,21 +43,21 @@
       },
       "Regulus.Samples.Chat1.Common/1.0.0": {
         "dependencies": {
-          "Regulus.Remote": "0.1.7.3"
+          "Regulus.Remote": "0.1.8.1"
         },
         "runtime": {
           "Regulus.Samples.Chat1.Common.dll": {}
         }
       },
-      "Regulus.Serialization/0.1.7.3": {
+      "Regulus.Serialization/0.1.8.1": {
         "dependencies": {
-          "Regulus.Utility": "0.1.7.3"
+          "Regulus.Utility": "0.1.8.1"
         },
         "runtime": {
           "Regulus.Serialization.dll": {}
         }
       },
-      "Regulus.Utility/0.1.7.3": {
+      "Regulus.Utility/0.1.8.1": {
         "runtime": {
           "Regulus.Utility.dll": {}
         }
@@ -84,12 +84,12 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
-    "Regulus.Network/0.1.7.3": {
+    "Regulus.Network/0.1.8.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Remote/0.1.7.3": {
+    "Regulus.Remote/0.1.8.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -99,12 +99,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Serialization/0.1.7.3": {
+    "Regulus.Serialization/0.1.8.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Utility/0.1.7.3": {
+    "Regulus.Utility/0.1.8.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -5,7 +5,7 @@
         event System.Action<string, string> PublicMessageEvent;
         event System.Action<string, string> PrivateMessageEvent;
 
-        Regulus.Remote.INotifier<IChatter> Chatters { get; }
+        Regulus.Remote.Notifier<IChatter> Chatters { get; }
         void Send(string message);
         void Quit();
     }

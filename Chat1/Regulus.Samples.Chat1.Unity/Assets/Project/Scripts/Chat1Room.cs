@@ -11,6 +11,13 @@ public class Chat1Room : MonoBehaviour
     public UnityEngine.UI.Text Name;
     public Transform MessageRoot;
     public GameObject MessageItemPrefab;
+
+    readonly System.Collections.Generic.List<IChatter> _Chatter;
+
+    public Chat1Room()
+    {
+        _Chatter = new System.Collections.Generic.List<IChatter>();
+    }
     private void OnDestroy()
     {
         var agent = Chat1Agent.FindAgent();
@@ -35,8 +42,8 @@ public class Chat1Room : MonoBehaviour
     private void _Hide(IPlayer obj)
     {        
         Root.SetActive(false);
-        _Player.Chatters.Supply -= _AddChatter;
-        _Player.Chatters.Unsupply -= _RemoveChatter;
+        _Player.Chatters.Base.Supply -= _AddChatter;
+        _Player.Chatters.Base.Unsupply -= _RemoveChatter;
         _Player.PublicMessageEvent -= _PublicMessage;
         _Player.PrivateMessageEvent -= _PrivateMessage;
     }
@@ -44,8 +51,8 @@ public class Chat1Room : MonoBehaviour
     private void _Show(IPlayer obj)
     {
         _Player = obj;
-        _Player.Chatters.Supply += _AddChatter;
-        _Player.Chatters.Unsupply += _RemoveChatter;
+        _Player.Chatters.Base.Supply += _AddChatter;
+        _Player.Chatters.Base.Unsupply += _RemoveChatter;
         _Player.PublicMessageEvent += _PublicMessage;
         _Player.PrivateMessageEvent += _PrivateMessage;
         Root.SetActive(true);
@@ -53,11 +60,13 @@ public class Chat1Room : MonoBehaviour
 
     private void _RemoveChatter(IChatter chatter)
     {
+        _Chatter.Add(chatter);
         _PushMessage($"{chatter.Name.Value} leave.");
     }
 
     private void _AddChatter(IChatter chatter)
     {
+        _Chatter.Add(chatter);
         _PushMessage($"{chatter.Name.Value} join." );
     }
 
@@ -85,8 +94,8 @@ public class Chat1Room : MonoBehaviour
 
     public void Send()
     {
-        var chatters = from chatter in _Player.Chatters.Ghosts
-                        where chatter.Name.Value == Name.text
+        var chatters = from chatter in _Chatter
+                       where chatter.Name.Value == Name.text
                         select chatter;
         if(!chatters.Any())
         {
