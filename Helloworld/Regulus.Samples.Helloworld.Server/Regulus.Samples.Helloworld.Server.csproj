@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Regulus\Regulus.Remote.Server\Regulus.Remote.Server.csproj" />
+    <ProjectReference Include="..\..\Regulus\RegulusUtility\Regulus.Utility\Regulus.Utility.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Helloworld.Common\Regulus.Samples.Helloworld.Common.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Helloworld.Protocol\Regulus.Samples.Helloworld.Protocol.csproj" />
   </ItemGroup>

@@ -7,14 +7,13 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "Regulus.Remote.Client/0.1.8.1": {
+      "Regulus.Remote.Client/0.1.8.2": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Regulus.Network": "0.1.8.1",
-          "Regulus.Remote": "0.1.8.1",
-          "Regulus.Remote.Ghost": "0.1.8.1",
-          "Regulus.Serialization": "0.1.8.1",
-          "Regulus.Utility": "0.1.8.1"
+          "Regulus.Network": "0.1.8.2",
+          "Regulus.Remote": "0.1.8.2",
+          "Regulus.Remote.Ghost": "0.1.8.2",
+          "Regulus.Serialization": "0.1.8.2"
         },
         "runtime": {
           "Regulus.Remote.Client.dll": {}
@@ -26,42 +25,41 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
-      "Regulus.Network/0.1.8.1": {
+      "Regulus.Network/0.1.8.2": {
         "dependencies": {
-          "Regulus.Utility": "0.1.8.1"
+          "Regulus.Utility": "0.1.8.2"
         },
         "runtime": {
           "Regulus.Network.dll": {}
         }
       },
-      "Regulus.Remote/0.1.8.1": {
+      "Regulus.Remote/0.1.8.2": {
         "dependencies": {
-          "Regulus.Network": "0.1.8.1",
-          "Regulus.Utility": "0.1.8.1"
+          "Regulus.Network": "0.1.8.2",
+          "Regulus.Utility": "0.1.8.2"
         },
         "runtime": {
           "Regulus.Remote.dll": {}
         }
       },
-      "Regulus.Remote.Ghost/0.1.8.1": {
+      "Regulus.Remote.Ghost/0.1.8.2": {
         "dependencies": {
-          "Regulus.Network": "0.1.8.1",
-          "Regulus.Remote": "0.1.8.1",
-          "Regulus.Utility": "0.1.8.1"
+          "Regulus.Network": "0.1.8.2",
+          "Regulus.Remote": "0.1.8.2"
         },
         "runtime": {
           "Regulus.Remote.Ghost.dll": {}
         }
       },
-      "Regulus.Serialization/0.1.8.1": {
+      "Regulus.Serialization/0.1.8.2": {
         "dependencies": {
-          "Regulus.Utility": "0.1.8.1"
+          "Regulus.Utility": "0.1.8.2"
         },
         "runtime": {
           "Regulus.Serialization.dll": {}
         }
       },
-      "Regulus.Utility/0.1.8.1": {
+      "Regulus.Utility/0.1.8.2": {
         "runtime": {
           "Regulus.Utility.dll": {}
         }
@@ -69,7 +67,7 @@
     }
   },
   "libraries": {
-    "Regulus.Remote.Client/0.1.8.1": {
+    "Regulus.Remote.Client/0.1.8.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -88,27 +86,27 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
-    "Regulus.Network/0.1.8.1": {
+    "Regulus.Network/0.1.8.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Remote/0.1.8.1": {
+    "Regulus.Remote/0.1.8.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Remote.Ghost/0.1.8.1": {
+    "Regulus.Remote.Ghost/0.1.8.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Serialization/0.1.8.1": {
+    "Regulus.Serialization/0.1.8.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Regulus.Utility/0.1.8.1": {
+    "Regulus.Utility/0.1.8.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

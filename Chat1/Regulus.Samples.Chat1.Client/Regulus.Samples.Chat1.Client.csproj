@@ -17,7 +17,7 @@
     <ProjectReference Include="..\..\Regulus\Regulus.Remote.Standalone\Regulus.Remote.Standalone.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Remote\Regulus.Remote.csproj" />
     <ProjectReference Include="..\..\Regulus\Regulus.Serialization\Regulus.Serialization.csproj" />
-    <ProjectReference Include="..\..\Regulus\Regulus.Utility\Regulus.Utility.csproj" />
+    <ProjectReference Include="..\..\Regulus\RegulusUtility\Regulus.Utility\Regulus.Utility.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Chat1.Protocol\Regulus.Samples.Chat1.Protocol.csproj" />
     <ProjectReference Include="..\Regulus.Samples.Chat1\Regulus.Samples.Chat1.csproj" />

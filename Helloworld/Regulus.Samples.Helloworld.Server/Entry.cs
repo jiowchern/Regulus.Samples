@@ -20,8 +20,8 @@ namespace Regulus.Samples.Helloworld.Server
         {
             // IBinder is what you get when your client completes the connection.
             binder.BreakEvent += _End;
-            binder.Bind<IGreeter>(_Greeter);
-            // unbind : binder.Unbind<IGreeter>(_Greeter);
+            var soul = binder.Bind<IGreeter>(_Greeter);
+            // unbind : binder.Unbind<IGreeter>(soul);
         }
 
         private void _End()

@@ -11,8 +11,10 @@ namespace Regulus.Samples.Chat1
     {
         private IBinder _Binder;
         private Room _Room;
+        private ISoul _This;
         readonly Chatter _Chatter;
         readonly string _Name;
+        
         readonly Regulus.Remote.NotifiableCollection<IChatter> _Chatters;
 
         Regulus.Remote.Notifier<IChatter> IPlayer.Chatters => new Remote.Notifier<IChatter>(_Chatters);
@@ -80,7 +82,7 @@ namespace Regulus.Samples.Chat1
             _Room.Chatters.Supply += _Add;
             _Room.Chatters.Unsupply += _Leave;
 
-            _Binder.Bind<IPlayer>(this);
+            _This = _Binder.Bind<IPlayer>(this);
         }
 
         private void _Leave(Chatter chatter)
@@ -98,7 +100,7 @@ namespace Regulus.Samples.Chat1
 
         void IBootable.Shutdown()
         {
-            _Binder.Unbind<IPlayer>(this);
+            _Binder.Unbind(_This);
 
             _Room.Chatters.Supply += _Add;
             _Room.Chatters.Unsupply += _Leave;
