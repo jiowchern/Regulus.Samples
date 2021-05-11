@@ -11,6 +11,7 @@ public class Chat1Connect : MonoBehaviour
     public UnityEngine.GameObject Panel;
     public UnityEngine.UI.InputField IP;
     public UnityEngine.UI.InputField Port;
+    public Regulus.Remote.Unity.Connecter Connecter;
     public UnityEngine.UI.Text Message;
     
     System.Action _OnConnect;
@@ -26,11 +27,11 @@ public class Chat1Connect : MonoBehaviour
         if (agent == null)
             return;
 
-        var connecter = Regulus.Remote.Client.Provider.CreateTcp(agent);
+        agent.Start(Connecter);
+        
 
         System.Action onConnect = () => {
-            // call connect to connect ...
-            _GetResult(connecter.Connect(_GetEndPoint()));
+            Connecter.Connect($"{IP.text}:{Port.text}");
         };
         _OnConnect = onConnect;
 
@@ -48,20 +49,7 @@ public class Chat1Connect : MonoBehaviour
 
     }
 
-    private void _GetResult(Task<IOnlineable> task)
-    {
-        task.ContinueWith(_Result);
-        /*var online = task.Result;
-        if (online != null)
-            _Hide();
-        else
-            Message.text = "connect fail";*/
-    }
-
-    private void _Result(Task<IOnlineable> arg1)
-    {
-        
-    }
+    
 
     private void _Show()
     {

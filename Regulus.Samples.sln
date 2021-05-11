@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chat1", "Chat1", "{F9C2FC4D
 	ProjectSection(SolutionItems) = preProject
 		Chat1\build-protocol.cmd = Chat1\build-protocol.cmd
 		Chat1\readme.md = Chat1\readme.md
+		Chat1\run-server-tcp.cmd = Chat1\run-server-tcp.cmd
+		Chat1\run-server-websocket.cmd = Chat1\run-server-websocket.cmd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{BA7380D3-00A0-4E1A-B22C-626126666BAA}"
