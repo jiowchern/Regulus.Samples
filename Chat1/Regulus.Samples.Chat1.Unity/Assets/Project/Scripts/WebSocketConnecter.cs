@@ -21,7 +21,9 @@ namespace Regulus.Remote.Unity
         }
         private void Update()
         {
+#if UNITY_EDITOR || !UNITY_WEBGL
             _Socket.DispatchMessageQueue();
+#endif
         }
 
 
