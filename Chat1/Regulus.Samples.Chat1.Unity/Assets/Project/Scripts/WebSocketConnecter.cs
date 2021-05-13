@@ -11,19 +11,35 @@ namespace Regulus.Remote.Unity
         NativeWebSocket.WebSocket _Socket;
 
         readonly System.Collections.Concurrent.ConcurrentQueue<byte> _Reads;
+        readonly System.Collections.Concurrent.ConcurrentQueue<byte> _Writes;
         public event System.Action CloseEvent; 
         public WebSocketConnecter()
         {
             CloseEvent += () => { };
             _Socket = new WebSocket("ws://127.0.0.1:1111");
             _Reads = new System.Collections.Concurrent.ConcurrentQueue<byte>();
-            
+            _Writes = new System.Collections.Concurrent.ConcurrentQueue<byte>();
+
+
         }
-        private void Update()
+        private async void Update()
         {
+
 #if UNITY_EDITOR || !UNITY_WEBGL
             _Socket.DispatchMessageQueue();
 #endif
+
+            if(_Socket.State == WebSocketState.Open)
+            {
+                byte data;
+                System.Collections.Generic.List<byte> buffer = new System.Collections.Generic.List<byte>();
+                while(_Writes.TryDequeue(out data))
+                {
+                    buffer.Add(data);
+                }
+                if(buffer.Count > 0)
+                    await _Socket.Send(buffer.ToArray());
+            }
         }
 
 
@@ -35,72 +51,72 @@ namespace Regulus.Remote.Unity
 
         private void _Message(byte[] data)
         {
+            UnityEngine.Debug.Log($"message {data.Length}");
             foreach (var b in data)
             {
                 _Reads.Enqueue(b);
             }
-            
+            UnityEngine.Debug.Log($"message done");
         }
 
         private void _Error(string error)
         {
-            throw new NotImplementedException();
+            UnityEngine.Debug.Log($"error {error}");
         }
 
         private void _Open()
         {
-            
+            UnityEngine.Debug.Log("open");
         }
 
-        protected override Task<int> _Receive(byte[] buffer, int offset, int count)
+        protected override Regulus.Network.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
         {
-            return Task<int>.Factory.StartNew(() => {
+            byte data;
+            int i = 0;
 
-                byte data;
-                int i = 0;
-                while (_Reads.TryDequeue(out data))
-                {
-                    buffer[offset + i++] = data;
-                    if (i == count)
-                        break;
-                }
-                return i;
-            });
-        }
+            while (_Reads.TryDequeue(out data))
+            {
 
-        protected override Task<int> _Send(byte[] buffer, int offset, int count)
-        {
-            return Task<int>.Factory.StartNew(() => {
-                byte[] buf = new byte[count];
-
-                for (int i = 0; i < count; i++)
-                {
-                    buf[i] = buffer[offset + i];
-                }
-                _Socket.Send(buf);
-                return count;
-            });
+                buffer[offset + i++] = data;
+                if (i == count)
+                    break;
+            }
+            UnityEngine.Debug.Log($"receive s{i}");            
             
+
+            return new Network.NoWaitValue<int>(i);
         }
 
-        public override Task<bool> Connect(string address)
+        protected override Regulus.Network.IWaitableValue<int> _Send(byte[] buffer, int offset, int count)
+        {
+            for (int i = offset; i < offset + count; i++)
+            {
+                _Writes.Enqueue(buffer[i]);
+            }
+       
+            
+            
+            return new Network.NoWaitValue<int>(count);
+        }
+
+        public override async void Connect(string address)
         {
             var result = System.Text.RegularExpressions.Regex.Match(address, "([\\w\\.]+):(\\d+)");
             if (!result.Success)
-                return Task<bool>.FromResult(false);
+                return ;
             var ip = result.Groups[1].Value;
             var port = int.Parse(result.Groups[2].Value);
 
 
-            Disconnect();
+            //Disconnect();
             _Socket = new WebSocket($"ws://{ip}:{port}");
             _Socket.OnOpen += _Open;
             _Socket.OnError += _Error;
             _Socket.OnMessage += _Message;
             _Socket.OnClose += _Close;
-            _Socket.Connect();
-
-            return null;
+            await _Socket.Connect();
+            UnityEngine.Debug.Log($"connected");
+            
         }
 
         public override void Disconnect()
