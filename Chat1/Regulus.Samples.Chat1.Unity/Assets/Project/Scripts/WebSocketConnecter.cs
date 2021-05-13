@@ -51,12 +51,12 @@ namespace Regulus.Remote.Unity
 
         private void _Message(byte[] data)
         {
-            UnityEngine.Debug.Log($"message {data.Length}");
+            
             foreach (var b in data)
             {
                 _Reads.Enqueue(b);
             }
-            UnityEngine.Debug.Log($"message done");
+            
         }
 
         private void _Error(string error)
@@ -81,7 +81,7 @@ namespace Regulus.Remote.Unity
                 if (i == count)
                     break;
             }
-            UnityEngine.Debug.Log($"receive s{i}");            
+                     
             
 
             return new Network.NoWaitValue<int>(i);
