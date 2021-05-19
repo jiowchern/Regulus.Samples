@@ -2020,10 +2020,10 @@ RectTransform:
   m_Father: {fileID: 380297719}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 384.02002, y: 25.974976}
-  m_SizeDelta: {x: -767.9538, y: 52.049988}
+  m_AnchoredPosition: {x: -77.518616, y: 26}
+  m_SizeDelta: {x: 155.0765, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166797389
 MonoBehaviour:
@@ -2635,10 +2635,10 @@ RectTransform:
   m_Father: {fileID: 380297719}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 25.25, y: 26}
-  m_SizeDelta: {x: -406.5, y: 52}
+  m_AnchoredPosition: {x: -597.81, y: 26.04}
+  m_SizeDelta: {x: 885.5, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406761283
 MonoBehaviour:
@@ -3723,9 +3723,9 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -358.75, y: 0}
-  m_SizeDelta: {x: -717.5, y: 52.04004}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 125.91998, y: 0}
+  m_SizeDelta: {x: 251.84, y: 52.04}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1950222235
 MonoBehaviour:
@@ -3980,7 +3980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Root: {fileID: 380297718}
-  Message: {fileID: 837641487}
+  Message: {fileID: 1406761283}
   Name: {fileID: 1085182634}
   MessageRoot: {fileID: 965287495}
   MessageItemPrefab: {fileID: 217772855}

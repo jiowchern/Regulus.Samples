@@ -74,12 +74,14 @@ namespace Regulus.Samples.Chat1
 
         void IBootable.Launch()
         {
-            _Chatters.Items.Clear();
             
-            _Room.Chatters.Supply += _Add;
-            _Room.Chatters.Unsupply += _Leave;
             _This = _Binder.Bind<IPlayer>(this);
             _Chatter = _Room.RegistChatter(this);
+            _Chatters.Items.Clear();
+
+            _Room.Chatters.Supply += _Add;
+            _Room.Chatters.Unsupply += _Leave;
+            
             
         }
 

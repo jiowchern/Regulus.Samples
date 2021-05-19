@@ -7,7 +7,7 @@ public class Chat1Room : MonoBehaviour
 {
     IPlayer _Player;
     public GameObject Root;
-    public UnityEngine.UI.Text Message;
+    public UnityEngine.UI.InputField Message;
     public UnityEngine.UI.Text Name;
     public Transform MessageRoot;
     public GameObject MessageItemPrefab;
@@ -70,14 +70,14 @@ public class Chat1Room : MonoBehaviour
         _PushMessage($"{chatter.Name.Value} join." );
     }
 
-    private void _PrivateMessage(string name, string message)
+    private void _PrivateMessage(Message message)
     {
-        _PushMessage("[private]", name, message);
+        _PushMessage("[private]", message.Name, message.Context);
     }
 
-    private void _PublicMessage(string name, string message)
+    private void _PublicMessage(Message message)
     {
-        _PushMessage("" , name , message);
+        _PushMessage("" , message.Name, message.Context);
     }
 
     private void _PushMessage(string prefix, string name, string message)
@@ -94,6 +94,7 @@ public class Chat1Room : MonoBehaviour
 
     public void Send()
     {
+
         var chatters = from chatter in _Chatter
                        where chatter.Name.Value == Name.text
                         select chatter;
@@ -108,7 +109,8 @@ public class Chat1Room : MonoBehaviour
                 chatter.Whisper(Message.text);
             }
         }
-        
+
+        Message.text = "";
     }
     public void Quit()
     {

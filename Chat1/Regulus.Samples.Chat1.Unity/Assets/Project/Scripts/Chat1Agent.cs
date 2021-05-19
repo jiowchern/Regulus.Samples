@@ -7,7 +7,8 @@ public class Chat1Agent : MonoBehaviour
     public Chat1Agent()
     {
         // get from Regulus.Samples.Chat1.Protocol.dll
-        var protocolType = Regulus.Remote.Protocol.ProtocolProvider.GetProtocols().Single();
+        var protocolTypss = Regulus.Remote.Protocol.ProtocolProvider.GetProtocols().ToArray();
+        var protocolType = protocolTypss.First();
         var protocol = System.Activator.CreateInstance(protocolType) as Regulus.Remote.IProtocol;
         var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
         
