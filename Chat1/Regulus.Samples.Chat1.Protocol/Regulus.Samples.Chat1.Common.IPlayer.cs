@@ -88,7 +88,7 @@
                     Regulus.Remote.Notifier<Regulus.Samples.Chat1.Common.IChatter> Regulus.Samples.Chat1.Common.IPlayer.Chatters { get{ return _Chatters;} }
 
                 public Regulus.Remote.GhostEventHandler _PublicMessageEvent = new Regulus.Remote.GhostEventHandler();
-                event System.Action<System.String,System.String> Regulus.Samples.Chat1.Common.IPlayer.PublicMessageEvent
+                event System.Action<Regulus.Samples.Chat1.Common.Message> Regulus.Samples.Chat1.Common.IPlayer.PublicMessageEvent
                 {
                     add { 
                             var id = _PublicMessageEvent.Add(value);
@@ -102,7 +102,7 @@
                 
 
                 public Regulus.Remote.GhostEventHandler _PrivateMessageEvent = new Regulus.Remote.GhostEventHandler();
-                event System.Action<System.String,System.String> Regulus.Samples.Chat1.Common.IPlayer.PrivateMessageEvent
+                event System.Action<Regulus.Samples.Chat1.Common.Message> Regulus.Samples.Chat1.Common.IPlayer.PrivateMessageEvent
                 {
                     add { 
                             var id = _PrivateMessageEvent.Add(value);

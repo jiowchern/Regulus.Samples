@@ -17,8 +17,8 @@ namespace Regulus.Samples.Chat1
         Property<string> IChatter.Name => new Property<string>(_Receiver.Messager.Name);
 
         void IChatter.Whisper(string message)
-        {
-            _Receiver.Messager.PrivateReceive(_Sender.Messager.Name, message);
+        {            
+            _Receiver.Messager.PrivateReceive(new Common.Message() { Name = _Sender.Messager.Name  , Context = message });
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         string Name { get; }
 
-        void PublicReceive(string name, string message);
-        void PrivateReceive(string name, string message);
+        void PublicReceive(Common.Message msg);
+        void PrivateReceive(Common.Message msg);
     }
 }

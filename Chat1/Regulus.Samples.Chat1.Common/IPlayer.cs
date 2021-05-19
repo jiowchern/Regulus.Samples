@@ -2,8 +2,8 @@
 {
     public interface IPlayer 
     {        
-        event System.Action<string, string> PublicMessageEvent;
-        event System.Action<string, string> PrivateMessageEvent;
+        event System.Action<Message> PublicMessageEvent;
+        event System.Action<Message> PrivateMessageEvent;
 
         Regulus.Remote.Notifier<IChatter> Chatters { get; }
         void Send(string message);

@@ -11,12 +11,12 @@ namespace Regulus.Samples.Chat1
     {
         private IBinder _Binder;
         private Room _Room;
-        private ISoul _This;
-        readonly Chatter _Chatter;
+        
         readonly string _Name;
         
         readonly Regulus.Remote.NotifiableCollection<IChatter> _Chatters;
-
+        private ISoul _This;
+        Chatter _Chatter;
         Regulus.Remote.Notifier<IChatter> IPlayer.Chatters => new Remote.Notifier<IChatter>(_Chatters);
 
         string IMessageable.Name => _Name;
@@ -27,12 +27,13 @@ namespace Regulus.Samples.Chat1
             _Binder = binder;
             _Room = room;
             _Name = name;
-            _Chatters = new Regulus.Remote.NotifiableCollection<IChatter>();
-            _Chatter = _Room.RegistChatter(this);
+            _Chatters = new Regulus.Remote.NotifiableCollection<IChatter>();            
+            _PublicMessageEvent += (m) => { };
+            _PrivateMessageEvent += (m) => { };
         }
 
-        event Action<string, string> _PublicMessageEvent;
-        event Action<string, string> IPlayer.PublicMessageEvent
+        event Action<Common.Message> _PublicMessageEvent;
+        event Action<Common.Message> IPlayer.PublicMessageEvent
         {
             add
             {
@@ -45,8 +46,8 @@ namespace Regulus.Samples.Chat1
             }
         }
 
-        event Action<string, string> _PrivateMessageEvent;
-        event Action<string, string> IPlayer.PrivateMessageEvent
+        event Action<Common.Message> _PrivateMessageEvent;
+        event Action<Common.Message> IPlayer.PrivateMessageEvent
         {
             add
             {
@@ -74,15 +75,12 @@ namespace Regulus.Samples.Chat1
         void IBootable.Launch()
         {
             _Chatters.Items.Clear();
-            if (_Chatter == null)
-            {
-                DoneEvent();
-                return;
-            }
+            
             _Room.Chatters.Supply += _Add;
             _Room.Chatters.Unsupply += _Leave;
-
             _This = _Binder.Bind<IPlayer>(this);
+            _Chatter = _Room.RegistChatter(this);
+            
         }
 
         private void _Leave(Chatter chatter)
@@ -100,22 +98,23 @@ namespace Regulus.Samples.Chat1
 
         void IBootable.Shutdown()
         {
+            _Room.UnregistChatter(_Chatter);
             _Binder.Unbind(_This);
 
-            _Room.Chatters.Supply += _Add;
-            _Room.Chatters.Unsupply += _Leave;
+            _Room.Chatters.Supply -= _Add;
+            _Room.Chatters.Unsupply -= _Leave;
 
-            _Room.UnregistChatter(_Chatter);
+            
         }
 
-        void IMessageable.PublicReceive(string name, string message)
+        void IMessageable.PublicReceive(Common.Message msg)
         {
-            _PublicMessageEvent(name,message);
+            _PublicMessageEvent(msg);
         }
 
-        void IMessageable.PrivateReceive(string name, string message)
+        void IMessageable.PrivateReceive(Common.Message msg)
         {
-            _PrivateMessageEvent(name, message);
+            _PrivateMessageEvent(msg);
         }
     }
 }

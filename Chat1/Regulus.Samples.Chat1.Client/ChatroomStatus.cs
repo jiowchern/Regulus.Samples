@@ -61,14 +61,14 @@ namespace Regulus.Samples.Chat1.Client
             _Command.Register("exitroom", player.Quit);
         }
 
-        private void _PublicMessage(string name, string message)
+        private void _PublicMessage(Common.Message msg)
         {
-            System.Console.WriteLine($"{name}:{message}");
+            System.Console.WriteLine($"{msg.Name}:{msg.Context}");
         }
 
-        private void _PrivateMessage(string name, string message)
+        private void _PrivateMessage(Common.Message msg)
         {
-            System.Console.WriteLine($"[private]{name}:{message}");
+            System.Console.WriteLine($"[private]{msg.Name}:{msg.Context}");
         }
 
         private void _ChatterLeave(IChatter chatter)

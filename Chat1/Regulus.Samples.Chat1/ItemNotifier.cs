@@ -28,8 +28,8 @@ namespace Regulus.Samples.Chat1
         }
         public void Remove(T item)
         {
-            _Gpis.Remove(item);
-            _Unsupply(item);
+            if(_Gpis.Remove(item))
+                _Unsupply(item);
         }
         event Action<T> _Supply;
         event Action<T> INotifier<T>.Supply

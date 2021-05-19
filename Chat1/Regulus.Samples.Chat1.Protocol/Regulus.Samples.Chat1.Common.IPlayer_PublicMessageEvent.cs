@@ -18,8 +18,8 @@
             }
             Delegate Regulus.Remote.IEventProxyCreator.Create(long soul_id,int event_id,long handler_id, Regulus.Remote.InvokeEventCallabck invoke_Event)
             {                
-                var closure = new Regulus.Remote.GenericEventClosure<System.String,System.String>(soul_id , event_id ,handler_id, invoke_Event);                
-                return new Action<System.String,System.String>(closure.Run);
+                var closure = new Regulus.Remote.GenericEventClosure<Regulus.Samples.Chat1.Common.Message>(soul_id , event_id ,handler_id, invoke_Event);                
+                return new Action<Regulus.Samples.Chat1.Common.Message>(closure.Run);
             }
         
 

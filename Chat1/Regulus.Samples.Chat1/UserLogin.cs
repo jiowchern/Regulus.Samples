@@ -8,8 +8,8 @@ namespace Regulus.Samples.Chat1
     internal class UserLogin : IBootable , ILogin
     {
         private IBinder _Binder;
-        
-        
+        private ISoul _Login;
+
         public UserLogin(IBinder binder)
         {
             _Binder = binder;        
@@ -19,7 +19,7 @@ namespace Regulus.Samples.Chat1
 
         void IBootable.Launch()
         {
-            _Binder.Bind<ILogin>(this);
+            _Login = _Binder.Bind<ILogin>(this);
         }
 
         Value<bool> ILogin.Login(string name)
@@ -30,7 +30,7 @@ namespace Regulus.Samples.Chat1
 
         void IBootable.Shutdown()
         {
-            
+            _Binder.Unbind(_Login);
         }
     }
 }

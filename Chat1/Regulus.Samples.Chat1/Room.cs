@@ -16,31 +16,36 @@ namespace Regulus.Samples.Chat1
             _Chatters = new ItemNotifier<Chatter>();
         }
         internal Chatter RegistChatter(IMessageable messageable)
-        {
-            var hasName = _Chatters.Items.Where(c=>c.Messager.Name == messageable.Name).Any();
-            if (hasName)
-                return null;
+        {            
             var chatter = new Chatter(messageable , (msg)=> _Broadcast(msg , messageable) );
-            _Chatters.Add(chatter);
+            lock(_Chatters)
+                _Chatters.Add(chatter);
             return chatter;
         }
 
         internal void UnregistChatter(Chatter chatter)
         {
-            _Chatters.Remove(chatter);
+            lock (_Chatters)
+                _Chatters.Remove(chatter);
         }
 
         void _Broadcast(string message , IMessageable sender)
         {
-            foreach (var chatter  in _Chatters.Items)
+            lock (_Chatters)
             {
-                chatter.Messager.PublicReceive(sender.Name, message);
+                foreach (var chatter in _Chatters.Items)
+                {
+                    chatter.Messager.PublicReceive(new Message() { Name = sender.Name, Context = message });
+                }
             }
+
+            
         }
 
         public void Dispose()
         {
-            _Chatters.Clear();
+            lock(_Chatters)
+                _Chatters.Clear();
         }
     }
 }
