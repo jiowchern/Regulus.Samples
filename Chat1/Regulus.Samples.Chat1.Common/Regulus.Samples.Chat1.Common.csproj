@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Regulus\Regulus.Remote\Regulus.Remote.csproj" />
+    <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />
   </ItemGroup>
 
 </Project>

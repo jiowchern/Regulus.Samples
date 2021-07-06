@@ -1,12 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Regulus\Regulus.Remote\Regulus.Remote.csproj" />
-    <ProjectReference Include="..\..\Regulus\Regulus.Serialization\Regulus.Serialization.csproj" />
+    <PackageReference Include="Regulus.Serialization" Version="0.1.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj" />
   </ItemGroup>
 
