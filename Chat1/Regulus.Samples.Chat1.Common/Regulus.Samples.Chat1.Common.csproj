@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />
+    <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />   
+    
   </ItemGroup>
-
+  
+  <!-- <Target Name="InvokeCustomTask" AfterTargets="Build">
+  
+    <RegulusRemoteProtocolGenerator Input="vdddalued3" />
+  </Target> -->
 </Project>

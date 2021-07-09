@@ -2,14 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+ 
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Regulus.Remote.Tools.Protocol" Version="0.1.9.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Regulus.Serialization" Version="0.1.9.1" />
+
+    <!-- <RegulusRemoteProtocol Include="../Regulus.Samples.Chat1.Common/bin/Debug/netstandard2.0/Regulus.Samples.Chat1.Common.dll"/> -->
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj" />
   </ItemGroup>
-
+  <Target Name="InvokeCustomTask" AfterTargets="Build">
+   
+    <CodeGenerator RemoteFile ="../Regulus.Samples.Chat1.Common/bin/Debug/netstandard2.0/Regulus.Remote.dll" InputFile="../Regulus.Samples.Chat1.Common/bin/Debug/netstandard2.0/Regulus.Samples.Chat1.Common.dll" />
+  </Target>
 </Project>
