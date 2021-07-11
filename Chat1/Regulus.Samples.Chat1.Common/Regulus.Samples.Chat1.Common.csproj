@@ -6,12 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />   
+    <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />
+    <PackageReference Include="Regulus.Remote.Tools.Protocol" Version="0.1.9.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>   
     
   </ItemGroup>
-  
-  <!-- <Target Name="InvokeCustomTask" AfterTargets="Build">
-  
-    <RegulusRemoteProtocolGenerator Input="vdddalued3" />
-  </Target> -->
+  <ItemGroup>
+    <RegulusProtocolOutputDir Include="../Regulus.Samples.Chat1.Protocol/" />
+  </ItemGroup>
+
 </Project>

@@ -7,13 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Commo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chat1", "Chat1", "{F9C2FC4D-277B-4A86-AECC-4930057A1278}"
 	ProjectSection(SolutionItems) = preProject
-		Chat1\build-protocol.cmd = Chat1\build-protocol.cmd
 		Chat1\readme.md = Chat1\readme.md
 		Chat1\run-server-tcp.cmd = Chat1\run-server-tcp.cmd
 		Chat1\run-server-websocket.cmd = Chat1\run-server-websocket.cmd
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{BA7380D3-00A0-4E1A-B22C-626126666BAA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Test", "Chat1\Regulus.Samples.Chat1.Test\Regulus.Samples.Chat1.Test.csproj", "{AF8ACC50-2EF8-446A-89EE-CA970AD7B8E5}"
 EndProject
@@ -27,7 +24,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Proto
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helloworld", "Helloworld", "{5EC46D8B-0278-4F91-9E0B-F26D71D5EB15}"
 	ProjectSection(SolutionItems) = preProject
-		Helloworld\build-protocol.cmd = Helloworld\build-protocol.cmd
 		Helloworld\readme.md = Helloworld\readme.md
 		Helloworld\run-client.cmd = Helloworld\run-client.cmd
 		Helloworld\run-server.cmd = Helloworld\run-server.cmd
