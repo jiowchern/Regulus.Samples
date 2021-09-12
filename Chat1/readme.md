@@ -1,2 +1,2 @@
 # Chat Room
-[DEMO](http://showcase.koreacentral.azurecontainer.io/games/chat1/index.html)
+[DEMO](http://114.34.92.204:52000/chat1/index.html) (Please wait a moment.)

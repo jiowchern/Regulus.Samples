@@ -7,11 +7,9 @@
 
   <ItemGroup>
     <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />
-    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.2">
+    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.2" ReferenceOutputAssembly="false" OutputItemType="Analyzer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-
-      <OutputItemType>Analyzer</OutputItemType><ReferenceOutputAssembly>false-</ReferenceOutputAssembly>
     </PackageReference>
     <PackageReference Include="Regulus.Serialization" Version="0.1.9.1" />   
     
