@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Regulus.Samples.Helloworld.Common;
 
 namespace Regulus.Samples.Helloworld.Server
 {
@@ -9,7 +10,7 @@ namespace Regulus.Samples.Helloworld.Server
         static void Main(string[] args)
         {
             int port = int.Parse(args[0]);
-            var protocolAsm = Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
+            var protocolAsm = typeof(IGreeter).Assembly;
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
 
             var entry = new Entry();

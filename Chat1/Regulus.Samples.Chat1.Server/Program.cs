@@ -1,5 +1,6 @@
 ﻿using Regulus.Utility.WindowConsoleAppliction;
 using System;
+using Regulus.Samples.Chat1.Common;
 
 namespace Regulus.Samples.Chat1.Server
 {
@@ -8,13 +9,13 @@ namespace Regulus.Samples.Chat1.Server
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="protocolfile"></param>
+        /// 
         /// <param name="port"></param>
         /// <param name="mode"></param>
-        static void Main(System.IO.FileInfo protocolfile,int port,string mode)
+        static void Main(int port,string mode)
         {
-            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
+            
+            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(typeof(IChatter).Assembly);
             var room = new Regulus.Samples.Chat1.Service();
             var service = Regulus.Remote.Server.Provider.CreateService(room, protocol);
             if (mode.ToLower() == "tcp")

@@ -1,6 +1,7 @@
 ﻿using Regulus.Utility.WindowConsoleAppliction;
 using System.IO;
 using System.Linq;
+using Regulus.Samples.Chat1.Common;
 
 namespace Regulus.Samples.Chat1.Client
 {
@@ -10,26 +11,25 @@ namespace Regulus.Samples.Chat1.Client
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="protocolfile"></param>
         /// <param name="servicefile"></param>
-        static void Main(System.IO.FileInfo protocolfile , System.IO.FileInfo servicefile )
+        static void Main(System.IO.FileInfo servicefile )
         {
             if(servicefile != null)
             {
                 System.Console.WriteLine("Standalone mode.");
-                _RunStandalone(protocolfile, servicefile);
+                _RunStandalone( servicefile);
             }
             else
             {
                 System.Console.WriteLine("Remote mode.");
-                _RunRemote(protocolfile);
+                _RunRemote();
             }
 
         }
 
-        private static void _RunStandalone(FileInfo protocolfile, FileInfo servicefile)
+        private static void _RunStandalone( FileInfo servicefile)
         {
-            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
+            var protocolAsm = typeof(IChatter).Assembly;
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
             var serviceAsm = System.Reflection.Assembly.LoadFrom(servicefile.FullName);
             var entrys = from type in serviceAsm.GetExportedTypes()
@@ -49,9 +49,9 @@ namespace Regulus.Samples.Chat1.Client
 
         }
 
-        private static void _RunRemote(FileInfo protocolfile)
+        private static void _RunRemote()
         {
-            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
+            var protocolAsm = typeof(IChatter).Assembly;
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
             var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
             var connecter = Regulus.Remote.Client.Provider.CreateTcp(agent);

@@ -14,7 +14,7 @@ namespace Regulus.Samples.Helloworld.Client
         {
             var ip = IPAddress.Parse(args[0]);
             var port = int.Parse(args[1]);
-            var protocolAsm = System.Reflection.Assembly.LoadFrom("Regulus.Samples.Helloworld.Protocol.dll");
+            var protocolAsm = typeof(IGreeter).Assembly;
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
             var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
             var tcp = Regulus.Remote.Client.Provider.CreateTcp(agent);

@@ -1,4 +1,5 @@
-﻿using Regulus.Utility.WindowConsoleAppliction;
+﻿using Regulus.Samples.Chat1.Common;
+using Regulus.Utility.WindowConsoleAppliction;
 namespace Regulus.Samples.Chat1.Bots
 {
     class Program
@@ -6,14 +7,14 @@ namespace Regulus.Samples.Chat1.Bots
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="protocolfile"></param>
+        
         /// <param name="address"></param>
         /// <param name="port"></param>
         /// <param name="botcount"></param>
         /// <param name="mode"></param>
-        static void Main(System.IO.FileInfo protocolfile,string address,int port,int botcount,string mode)
+        static void Main(string address,int port,int botcount,string mode)
         {
-            var protocolAsm = System.Reflection.Assembly.LoadFrom(protocolfile.FullName);
+            var protocolAsm = typeof(IChatter).Assembly;
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
 
             if(mode == "tcp")

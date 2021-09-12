@@ -6,8 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Regulus.Remote.Client" Version="0.1.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Regulus.Samples.Helloworld.Common\Regulus.Samples.Helloworld.Common.csproj" />
-    <ProjectReference Include="..\Regulus.Samples.Helloworld.Protocol\Regulus.Samples.Helloworld.Protocol.csproj" />
   </ItemGroup>
 
 </Project>

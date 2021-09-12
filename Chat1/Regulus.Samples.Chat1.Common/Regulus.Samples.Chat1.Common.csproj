@@ -7,12 +7,17 @@
 
   <ItemGroup>
     <PackageReference Include="Regulus.Remote" Version="0.1.9.1" />
-    <PackageReference Include="Regulus.Remote.Tools.Protocol" Version="0.1.9.1">
+    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>   
+
+      <OutputItemType>Analyzer</OutputItemType><ReferenceOutputAssembly>false-</ReferenceOutputAssembly>
+    </PackageReference>
+    <PackageReference Include="Regulus.Serialization" Version="0.1.9.1" />   
     
   </ItemGroup>
+
+ 
   <ItemGroup>
     <RegulusProtocolOutputDir Include="../Regulus.Samples.Chat1.Protocol/" />
   </ItemGroup>
