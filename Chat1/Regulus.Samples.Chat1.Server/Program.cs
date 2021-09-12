@@ -27,7 +27,7 @@ namespace Regulus.Samples.Chat1.Server
         private static void _WebSocket(int port, Remote.Soul.IService service)
         {
             var listener = Regulus.Remote.Server.Provider.CreateWebSocket(service);
-            listener.Bind($"http://127.0.0.1:{port}/");
+            listener.Bind($"http://*:{port}/");
             var console = new Console();
             console.Run();
             listener.Close();
