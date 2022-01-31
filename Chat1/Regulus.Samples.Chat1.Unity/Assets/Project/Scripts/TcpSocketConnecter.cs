@@ -26,12 +26,12 @@ namespace Regulus.Remote.Unity
             _Connectable.Disconnect();
         }
 
-        protected override Network.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
+        protected override Remote.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
         {
             return _Connectable.Receive(buffer,offset,count);
         }
 
-        protected override Network.IWaitableValue<int> _Send(byte[] buffer, int offset, int count)
+        protected override Remote.IWaitableValue<int> _Send(byte[] buffer, int offset, int count)
         {
             return _Connectable.Send(buffer, offset, count);
         }

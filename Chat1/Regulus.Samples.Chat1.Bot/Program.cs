@@ -1,5 +1,7 @@
 ﻿using Regulus.Samples.Chat1.Common;
 using Regulus.Utility.WindowConsoleAppliction;
+using System.Linq;
+
 namespace Regulus.Samples.Chat1.Bots
 {
     class Program
@@ -15,7 +17,7 @@ namespace Regulus.Samples.Chat1.Bots
         static void Main(string address,int port,int botcount,string mode)
         {
             var protocolAsm = typeof(IChatter).Assembly;
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
+            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).First();
 
             if(mode == "tcp")
             {

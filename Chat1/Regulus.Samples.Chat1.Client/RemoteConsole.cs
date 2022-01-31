@@ -43,7 +43,8 @@ namespace Regulus.Samples.Chat1.Client
             var resultTask = _Connecter.Connect(new IPEndPoint(IPAddress.Parse(ip) , port ));
             var online = resultTask.Result;
             Command.Unregister("Disconnect");
-            Command.Register("Disconnect", online.Disconnect);
+            if(online != null)
+                Command.Register("Disconnect", online.Disconnect);
 
         }
     }

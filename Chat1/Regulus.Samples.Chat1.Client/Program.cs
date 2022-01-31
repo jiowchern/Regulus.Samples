@@ -30,7 +30,7 @@ namespace Regulus.Samples.Chat1.Client
         private static void _RunStandalone( FileInfo servicefile)
         {
             var protocolAsm = typeof(IChatter).Assembly;
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
+            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).First();
             var serviceAsm = System.Reflection.Assembly.LoadFrom(servicefile.FullName);
             var entrys = from type in serviceAsm.GetExportedTypes()
                          from interfaceType in type.GetInterfaces()
@@ -52,7 +52,7 @@ namespace Regulus.Samples.Chat1.Client
         private static void _RunRemote()
         {
             var protocolAsm = typeof(IChatter).Assembly;
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm);
+            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).First();
             var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
             var connecter = Regulus.Remote.Client.Provider.CreateTcp(agent);
             var console = new RemoteConsole(connecter  , agent);

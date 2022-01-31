@@ -69,7 +69,7 @@ namespace Regulus.Remote.Unity
             UnityEngine.Debug.Log("open");
         }
 
-        protected override Regulus.Network.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
+        protected override Regulus.Remote.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
         {
             byte data;
             int i = 0;
@@ -87,7 +87,7 @@ namespace Regulus.Remote.Unity
             return new Network.NoWaitValue<int>(i);
         }
 
-        protected override Regulus.Network.IWaitableValue<int> _Send(byte[] buffer, int offset, int count)
+        protected override Regulus.Remote.IWaitableValue<int> _Send(byte[] buffer, int offset, int count)
         {
             for (int i = offset; i < offset + count; i++)
             {

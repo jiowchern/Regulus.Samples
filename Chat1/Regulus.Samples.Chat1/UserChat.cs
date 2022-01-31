@@ -21,6 +21,8 @@ namespace Regulus.Samples.Chat1
 
         string IMessageable.Name => _Name;
 
+        
+
         public event System.Action DoneEvent;
         public UserChat(IBinder binder, Room room, string name)
         {
@@ -38,6 +40,10 @@ namespace Regulus.Samples.Chat1
             add
             {
                 _PublicMessageEvent += value;
+                foreach (var msg in _Room.Histroyable.Query())
+                {
+                    value(msg);
+                }
             }
 
             remove

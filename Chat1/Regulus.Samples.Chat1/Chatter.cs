@@ -8,7 +8,7 @@ namespace Regulus.Samples.Chat1
     {
         public readonly IMessageable Messager;        
         public readonly System.Action<string> Send;
-        public Chatter(IMessageable messageable, System.Action<string> send)
+        public Chatter(IMessageable messageable, System.Action<string> send )
         {
             Messager = messageable;            
             Send = send;

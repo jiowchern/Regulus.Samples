@@ -10,9 +10,9 @@
       "Regulus.Samples.Chat1.Common/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Regulus.Remote": "0.1.9.1",
-          "Regulus.Remote.Tools.Protocol.Sources": "0.0.0.2",
-          "Regulus.Serialization": "0.1.9.1"
+          "Regulus.Remote": "0.1.10",
+          "Regulus.Remote.Tools.Protocol.Sources": "0.0.0.4",
+          "Regulus.Serialization": "0.1.10"
         },
         "runtime": {
           "Regulus.Samples.Chat1.Common.dll": {}
@@ -28,105 +28,11 @@
           "System.Runtime.CompilerServices.Unsafe": "5.0.0",
           "System.Text.Encoding.CodePages": "4.5.1",
           "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {
-            "assemblyVersion": "3.10.0.0",
-            "fileVersion": "3.1000.21.31005"
-          }
-        },
-        "resources": {
-          "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/netstandard2.0/de/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netstandard2.0/es/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/fr/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netstandard2.0/it/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "it"
-          },
-          "lib/netstandard2.0/ja/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/netstandard2.0/ko/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/netstandard2.0/pl/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/netstandard2.0/pt-BR/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netstandard2.0/ru/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "zh-Hant"
-          }
         }
       },
       "Microsoft.CodeAnalysis.CSharp/3.10.0": {
         "dependencies": {
           "Microsoft.CodeAnalysis.Common": "3.10.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {
-            "assemblyVersion": "3.10.0.0",
-            "fileVersion": "3.1000.21.31005"
-          }
-        },
-        "resources": {
-          "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/netstandard2.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netstandard2.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netstandard2.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "it"
-          },
-          "lib/netstandard2.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/netstandard2.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/netstandard2.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/netstandard2.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netstandard2.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "zh-Hant"
-          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -135,76 +41,57 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
-      "Regulus.Network/0.1.9.1": {
+      "Regulus.Network/0.1.10": {
         "dependencies": {
-          "Regulus.Utility": "0.1.9.1"
+          "Regulus.Utility": "0.1.10"
         },
         "runtime": {
           "lib/netstandard2.0/Regulus.Network.dll": {
-            "assemblyVersion": "0.1.9.1",
-            "fileVersion": "0.1.9.1"
+            "assemblyVersion": "0.1.10.0",
+            "fileVersion": "0.1.10.0"
           }
         }
       },
-      "Regulus.Remote/0.1.9.1": {
+      "Regulus.Remote/0.1.10": {
         "dependencies": {
-          "Regulus.Network": "0.1.9.1",
-          "Regulus.Utility": "0.1.9.1"
+          "Regulus.Network": "0.1.10",
+          "Regulus.Utility": "0.1.10"
         },
         "runtime": {
           "lib/netstandard2.0/Regulus.Remote.dll": {
-            "assemblyVersion": "0.1.9.1",
-            "fileVersion": "0.1.9.1"
+            "assemblyVersion": "0.1.10.0",
+            "fileVersion": "0.1.10.0"
           }
         }
       },
-      "Regulus.Remote.Tools.Protocol.Sources/0.0.0.2": {
+      "Regulus.Remote.Tools.Protocol.Sources/0.0.0.4": {
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp": "3.10.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Regulus.Remote.Tools.Protocol.Sources.dll": {
-            "assemblyVersion": "0.0.0.2",
-            "fileVersion": "0.0.0.2"
-          }
         }
       },
-      "Regulus.Serialization/0.1.9.1": {
+      "Regulus.Serialization/0.1.10": {
         "dependencies": {
-          "Regulus.Utility": "0.1.9.1"
+          "Regulus.Utility": "0.1.10"
         },
         "runtime": {
           "lib/netstandard2.0/Regulus.Serialization.dll": {
-            "assemblyVersion": "0.1.9.1",
-            "fileVersion": "0.1.9.1"
+            "assemblyVersion": "0.1.10.0",
+            "fileVersion": "0.1.10.0"
           }
         }
       },
-      "Regulus.Utility/0.1.9.1": {
+      "Regulus.Utility/0.1.10": {
         "runtime": {
           "lib/netstandard2.0/Regulus.Utility.dll": {
-            "assemblyVersion": "0.1.9.1",
-            "fileVersion": "0.1.9.1"
+            "assemblyVersion": "0.1.10.0",
+            "fileVersion": "0.1.10.0"
           }
         }
       },
-      "System.Buffers/4.5.1": {
-        "runtime": {
-          "lib/netstandard2.0/System.Buffers.dll": {
-            "assemblyVersion": "4.0.3.0",
-            "fileVersion": "4.6.28619.1"
-          }
-        }
-      },
+      "System.Buffers/4.5.1": {},
       "System.Collections.Immutable/5.0.0": {
         "dependencies": {
           "System.Memory": "4.5.4"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.51904"
-          }
         }
       },
       "System.Memory/4.5.4": {
@@ -212,61 +99,23 @@
           "System.Buffers": "4.5.1",
           "System.Numerics.Vectors": "4.4.0",
           "System.Runtime.CompilerServices.Unsafe": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Memory.dll": {
-            "assemblyVersion": "4.0.1.1",
-            "fileVersion": "4.6.28619.1"
-          }
         }
       },
-      "System.Numerics.Vectors/4.4.0": {
-        "runtime": {
-          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
-            "assemblyVersion": "4.1.3.0",
-            "fileVersion": "4.6.25519.3"
-          }
-        }
-      },
+      "System.Numerics.Vectors/4.4.0": {},
       "System.Reflection.Metadata/5.0.0": {
         "dependencies": {
           "System.Collections.Immutable": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.51904"
-          }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
-        "runtime": {
-          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.51904"
-          }
-        }
-      },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
       "System.Text.Encoding.CodePages/4.5.1": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
-            "assemblyVersion": "4.1.1.0",
-            "fileVersion": "4.6.27129.4"
-          }
         }
       },
       "System.Threading.Tasks.Extensions/4.5.4": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {
-            "assemblyVersion": "4.2.0.1",
-            "fileVersion": "4.6.28619.1"
-          }
         }
       }
     }
@@ -312,40 +161,40 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
-    "Regulus.Network/0.1.9.1": {
+    "Regulus.Network/0.1.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ufJGhZJj+ztZx1+CbKuCdH9wYR7vLx33HoFXe6f+KGapFfpgn/3sbsso19kpHdGuXwZgbZ/DRQ0tgdpxdlojBA==",
-      "path": "regulus.network/0.1.9.1",
-      "hashPath": "regulus.network.0.1.9.1.nupkg.sha512"
+      "sha512": "sha512-sD+6nUTnbKTN+lP2UEGWblzS26rpaZm2LQ2g26Ohy3nmgy2DTr2KA99hmSxfZB2mTGKlyjbS74smgnOv0WPE4Q==",
+      "path": "regulus.network/0.1.10",
+      "hashPath": "regulus.network.0.1.10.nupkg.sha512"
     },
-    "Regulus.Remote/0.1.9.1": {
+    "Regulus.Remote/0.1.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oOZ+z57q2Ny0vidHDni3EszZpafgNs5LaiA0znOo3jS3yFaw53maY36P49MrGGCh2sLxdlB5HXaNW3wKDA8Sjw==",
-      "path": "regulus.remote/0.1.9.1",
-      "hashPath": "regulus.remote.0.1.9.1.nupkg.sha512"
+      "sha512": "sha512-dYGOjixsOjM9zfPOp4c0ku8y4kbA18xyWAQjRESh0Gw9SNFCZbZzGyIfXQOM60Fc9dY/tTKicpclXmeuw8EjTA==",
+      "path": "regulus.remote/0.1.10",
+      "hashPath": "regulus.remote.0.1.10.nupkg.sha512"
     },
-    "Regulus.Remote.Tools.Protocol.Sources/0.0.0.2": {
+    "Regulus.Remote.Tools.Protocol.Sources/0.0.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HmUv0Se9pOOngrskAIN4F9vDsoDInA2O4RL/Pn4DJ3W8SkOwr8CYWzrN37bjagEtmo1jGy5xuhNh8802yoY1Ow==",
-      "path": "regulus.remote.tools.protocol.sources/0.0.0.2",
-      "hashPath": "regulus.remote.tools.protocol.sources.0.0.0.2.nupkg.sha512"
+      "sha512": "sha512-KjrE+Z2GA5X0m51H5PHJ7s7srTEjZsaGoRSC2pxAMnc2hxz1zsHGRAnPTWABg/0/zKzgMujabzRQ/wiSC60oGA==",
+      "path": "regulus.remote.tools.protocol.sources/0.0.0.4",
+      "hashPath": "regulus.remote.tools.protocol.sources.0.0.0.4.nupkg.sha512"
     },
-    "Regulus.Serialization/0.1.9.1": {
+    "Regulus.Serialization/0.1.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-s/gmCGeRrZtmEWinpDwU21DyGjjcsnAWjSH8NqLwLIPK3iDZXopzAPrnjRmhpY9qDpa5b3HiQdvB3EZQVTlIrg==",
-      "path": "regulus.serialization/0.1.9.1",
-      "hashPath": "regulus.serialization.0.1.9.1.nupkg.sha512"
+      "sha512": "sha512-W8SL7Wm0Nn2s6VRhgngpXGNqvoQQI7e0D9ZBk0YQhGpFXjgJfADQj69JgP0pX7IxXxQIAbT31fcb5tJRhymtww==",
+      "path": "regulus.serialization/0.1.10",
+      "hashPath": "regulus.serialization.0.1.10.nupkg.sha512"
     },
-    "Regulus.Utility/0.1.9.1": {
+    "Regulus.Utility/0.1.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dvgSxR0ormrtioPyXUfbHYWAJt90JhV5z05LaxQ2b4AUHLyQgkP9TAxHYuCSf0bteVAdPzRQ/YKF/PYd8G+k7g==",
-      "path": "regulus.utility/0.1.9.1",
-      "hashPath": "regulus.utility.0.1.9.1.nupkg.sha512"
+      "sha512": "sha512-dH3lACRpUJmtuw7tJWukAwSZGvQRGlOlaw5EaSGNIB2gtpC8zplRF+wh+/0n/zGDWtS7Z8Ylrc3mCdciHwFSXw==",
+      "path": "regulus.utility/0.1.10",
+      "hashPath": "regulus.utility.0.1.10.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
