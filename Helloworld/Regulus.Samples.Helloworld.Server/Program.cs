@@ -10,8 +10,8 @@ namespace Regulus.Samples.Helloworld.Server
         static void Main(string[] args)
         {
             int port = int.Parse(args[0]);
-            var protocolAsm = typeof(IGreeter).Assembly;
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).FirstOrDefault();
+            
+            var protocol = Regulus.Samples.Helloworld.Common.ProtocolCreator.Create();
 
             var entry = new Entry();
 

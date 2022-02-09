@@ -29,8 +29,8 @@ namespace Regulus.Samples.Chat1.Client
 
         private static void _RunStandalone( FileInfo servicefile)
         {
-            var protocolAsm = typeof(IChatter).Assembly;
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).First();
+
+            var protocol = Regulus.Samples.Chat1.Common.ProtocolCreator.Create();
             var serviceAsm = System.Reflection.Assembly.LoadFrom(servicefile.FullName);
             var entrys = from type in serviceAsm.GetExportedTypes()
                          from interfaceType in type.GetInterfaces()

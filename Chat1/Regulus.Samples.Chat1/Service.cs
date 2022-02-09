@@ -11,8 +11,7 @@ namespace Regulus.Samples.Chat1
         {
             _Room = new Room();
             _User = new List<User>();
-            Regulus.Utility.Log.Instance.WriteInfo("aaa");
-            Regulus.Utility.Log.Instance.WriteInfo("aaa");
+           
         }
         void IBinderProvider.AssignBinder(IBinder binder,object state)
         {

@@ -16,7 +16,7 @@ namespace Regulus.Samples.Chat1.Server
         static void Main(int port,string mode)
         {
             
-            var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(typeof(IChatter).Assembly).First();
+            var protocol = Regulus.Samples.Chat1.Common.ProtocolCreator.Create();
             var room = new Regulus.Samples.Chat1.Service();
             var service = Regulus.Remote.Server.Provider.CreateService(room, protocol);
             if (mode.ToLower() == "tcp")
