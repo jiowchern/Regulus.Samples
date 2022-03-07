@@ -29,23 +29,26 @@ namespace Regulus.Samples.Chat1.Client
 
         private static void _RunStandalone( FileInfo servicefile)
         {
-
-            var protocol = Regulus.Samples.Chat1.Common.ProtocolCreator.Create();
+            var protocol = Regulus.Samples.Chat1.Common.ProtocolCreater.Create();
             var serviceAsm = System.Reflection.Assembly.LoadFrom(servicefile.FullName);
             var entrys = from type in serviceAsm.GetExportedTypes()
                          from interfaceType in type.GetInterfaces()
                          where interfaceType == typeof(Regulus.Remote.IEntry)
                          select System.Activator.CreateInstance(type) as Regulus.Remote.IEntry;
-            var entry = entrys.Single();           
-            var service = Regulus.Remote.Standalone.Provider.CreateService(protocol, entry);
-            var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
-            service.Join(agent);            
+            var entry = entrys.Single();
+            var service = Regulus.Remote.Standalone.Provider.CreateService(entry , protocol);
+
+
+
+            var agent = service.Create();
+            
 
             var console = new StandaloneConsole(agent);
-            console.Run();
-            service.Leave(agent);
-            service.Dispose();
 
+            console.Run();
+
+            service.Destroy(agent);            
+            service.Dispose();
 
         }
 
@@ -53,9 +56,9 @@ namespace Regulus.Samples.Chat1.Client
         {
             var protocolAsm = typeof(IChatter).Assembly;
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).First();
-            var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
-            var connecter = Regulus.Remote.Client.Provider.CreateTcp(agent);
-            var console = new RemoteConsole(connecter  , agent);
+            
+            var set = Regulus.Remote.Client.Provider.CreateTcpAgent(protocol);
+            var console = new RemoteConsole(set.Connecter, set.Agent);
             console.Run();
         }
     }

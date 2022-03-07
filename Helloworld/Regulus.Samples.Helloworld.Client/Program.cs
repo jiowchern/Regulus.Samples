@@ -15,9 +15,10 @@ namespace Regulus.Samples.Helloworld.Client
             var ip = IPAddress.Parse(args[0]);
             var port = int.Parse(args[1]);
             var protocolAsm = typeof(IGreeter).Assembly;
-            var protocol = Regulus.Samples.Helloworld.Common.ProtocolCreator.Create();
-            var agent = Regulus.Remote.Client.Provider.CreateAgent(protocol);
-            var tcp = Regulus.Remote.Client.Provider.CreateTcp(agent);
+            var protocol = Regulus.Samples.Helloworld.Common.ProtocolCreater.Create();
+            var set = Regulus.Remote.Client.Provider.CreateTcpAgent(protocol);
+            var tcp = set.Connecter;
+            var agent = set.Agent;
             var connectTask = tcp.Connect(new IPEndPoint(ip, port));
             connectTask.Wait();
             var online = connectTask.Result;
@@ -25,12 +26,15 @@ namespace Regulus.Samples.Helloworld.Client
                 String user = "you";
                 greeter.SayHello(new HelloRequest() { Name = user}).OnValue += _GetReply;
             };
+
             while (Enable)
             {
                 System.Threading.Thread.Sleep(0);
                 agent.Update();
             }
-            online.Disconnect();
+
+            tcp.Disconnect();
+            agent.Dispose();
             System.Console.WriteLine($"Press any key to end.");
             System.Console.ReadKey();
         }

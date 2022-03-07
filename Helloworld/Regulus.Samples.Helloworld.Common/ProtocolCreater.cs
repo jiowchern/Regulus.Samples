@@ -1,6 +1,6 @@
 ﻿namespace Regulus.Samples.Helloworld.Common
 {
-    public static partial class ProtocolCreator
+    public static partial class ProtocolCreater
     {
         public static Regulus.Remote.IProtocol Create()
         {
@@ -9,7 +9,7 @@
             return p;
         }
 
-        [Regulus.Remote.Protocol.Creator]
+        [Regulus.Remote.Protocol.Creater]
         static partial void _Create(ref Regulus.Remote.IProtocol p);
     }
 }

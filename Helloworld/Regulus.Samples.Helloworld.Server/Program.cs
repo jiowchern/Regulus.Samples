@@ -11,13 +11,15 @@ namespace Regulus.Samples.Helloworld.Server
         {
             int port = int.Parse(args[0]);
             
-            var protocol = Regulus.Samples.Helloworld.Common.ProtocolCreator.Create();
+            var protocol = Regulus.Samples.Helloworld.Common.ProtocolCreater.Create();
 
             var entry = new Entry();
 
-            var service = Regulus.Remote.Server.Provider.CreateService(entry, protocol);
-            var listener = Regulus.Remote.Server.Provider.CreateTcp(service);
-            
+            var set = Regulus.Remote.Server.Provider.CreateTcpService(entry, protocol);
+            var listener = set.Listener;
+            var service = set.Service;
+
+
             listener.Bind(port);
             System.Console.WriteLine($"start.");
             while (entry.Enable)

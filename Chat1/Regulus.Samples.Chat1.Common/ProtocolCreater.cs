@@ -2,7 +2,7 @@
 
 namespace Regulus.Samples.Chat1.Common
 {
-    public static partial class ProtocolCreator
+    public static partial class ProtocolCreater
     {
         public static IProtocol Create()
         {
@@ -11,7 +11,7 @@ namespace Regulus.Samples.Chat1.Common
             return p;
         }
 
-        [Regulus.Remote.Protocol.Creator]
+        [Regulus.Remote.Protocol.Creater]
         static partial void _Create(ref IProtocol p);
         
     }

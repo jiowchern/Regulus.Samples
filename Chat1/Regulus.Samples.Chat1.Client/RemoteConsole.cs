@@ -1,4 +1,5 @@
-﻿using Regulus.Remote.Client.Tcp;
+﻿using Regulus.Network.Tcp;
+using Regulus.Remote.Client.Tcp;
 using Regulus.Remote.Ghost;
 using System.Net;
 
@@ -41,10 +42,14 @@ namespace Regulus.Samples.Chat1.Client
         private void _ConnectAsync(string ip, int port)
         {
             var resultTask = _Connecter.Connect(new IPEndPoint(IPAddress.Parse(ip) , port ));
-            var online = resultTask.Result;
+            var result = resultTask.Result;
             Command.Unregister("Disconnect");
-            if(online != null)
-                Command.Register("Disconnect", online.Disconnect);
+            
+            if (result)
+            {
+                Command.Register("Disconnect", ()=> _Connecter.Disconnect().Wait() );
+            }
+                
 
         }
     }

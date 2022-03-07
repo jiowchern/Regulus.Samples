@@ -16,32 +16,37 @@ namespace Regulus.Samples.Chat1.Server
         static void Main(int port,string mode)
         {
             
-            var protocol = Regulus.Samples.Chat1.Common.ProtocolCreator.Create();
+            var protocol = Regulus.Samples.Chat1.Common.ProtocolCreater.Create();
             var room = new Regulus.Samples.Chat1.Service();
-            var service = Regulus.Remote.Server.Provider.CreateService(room, protocol);
+            
             if (mode.ToLower() == "tcp")
-                _Tcp(port, service);
+                _Tcp(port, room, protocol);
             if (mode.ToLower() == "websocket")
-                _WebSocket(port, service);
+                _WebSocket(port, room, protocol);
         }
 
-        private static void _WebSocket(int port, Remote.Soul.IService service)
+        private static void _WebSocket(int port, Service room, Remote.IProtocol protocol)
         {
-            var listener = Regulus.Remote.Server.Provider.CreateWebSocket(service);
+            var set = Regulus.Remote.Server.Provider.CreateWebService(room , protocol);
+            var listener = set.Listener;
             listener.Bind($"http://*:{port}/");
             var console = new Console();
             console.Run();
             listener.Close();
+            set.Service.Dispose();
         }
 
-        private static void _Tcp(int port, Remote.Soul.IService service)
+
+        private static void _Tcp(int port, Service room, Remote.IProtocol protocol)
         {
-            
-            var listener = Regulus.Remote.Server.Provider.CreateTcp(service);
+
+            var set = Regulus.Remote.Server.Provider.CreateTcpService(room, protocol);
+            var listener = set.Listener;
             listener.Bind(port);
             var console = new Console();
             console.Run();
             listener.Close();
+            set.Service.Dispose();
         }
     }
 }

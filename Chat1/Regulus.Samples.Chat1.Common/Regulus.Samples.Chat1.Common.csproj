@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Regulus.Remote" Version="0.1.10.1" />
-    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.5">
+    <PackageReference Include="Regulus.Remote" Version="0.1.11.0" />
+    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Regulus.Serialization" Version="0.1.10.0" />
+    
   </ItemGroup>
 
  

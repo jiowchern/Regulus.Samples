@@ -971,6 +971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 556081197}
   - component: {fileID: 556081196}
+  - component: {fileID: 556081198}
   m_Layer: 0
   m_Name: Chat1.Agent
   m_TagString: Untagged
@@ -990,6 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b97c17ed678604189600a04aa07d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Connecter: {fileID: 556081198}
 --- !u!4 &556081197
 Transform:
   m_ObjectHideFlags: 0
@@ -1004,6 +1006,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &556081198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556081195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5998d62eb8aff14a982d2478b0c4874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603501274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,7 +3859,6 @@ GameObject:
   - component: {fileID: 1975544837}
   - component: {fileID: 1975544842}
   - component: {fileID: 1975544843}
-  - component: {fileID: 1975544844}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3868,7 +3881,7 @@ MonoBehaviour:
   Panel: {fileID: 971982295}
   IP: {fileID: 1785529488}
   Port: {fileID: 1517240288}
-  Connecter: {fileID: 1975544844}
+  Connecter: {fileID: 556081198}
   Message: {fileID: 823958779}
 --- !u!114 &1975544838
 MonoBehaviour:
@@ -3984,18 +3997,6 @@ MonoBehaviour:
   Name: {fileID: 1085182634}
   MessageRoot: {fileID: 965287495}
   MessageItemPrefab: {fileID: 217772855}
---- !u!114 &1975544844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975544836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5998d62eb8aff14a982d2478b0c4874, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1990963273
 GameObject:
   m_ObjectHideFlags: 0

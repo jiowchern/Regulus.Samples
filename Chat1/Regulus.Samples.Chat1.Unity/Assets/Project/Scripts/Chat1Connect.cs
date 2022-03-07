@@ -27,7 +27,7 @@ public class Chat1Connect : MonoBehaviour
         if (agent == null)
             return;
 
-        agent.Start(Connecter);
+        
         
 
         System.Action onConnect = () => {

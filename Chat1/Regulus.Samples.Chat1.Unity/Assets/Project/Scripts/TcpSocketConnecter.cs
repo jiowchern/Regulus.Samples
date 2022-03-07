@@ -2,14 +2,14 @@
 
 namespace Regulus.Remote.Unity
 {
-    public class TcpSocketConnecter : Connecter
+    public class TcpSocketConnecter : Connecter  
     {
         readonly Regulus.Network.Tcp.Connecter _Connecter;
-        readonly Regulus.Network.IConnectable _Connectable;
+        readonly Regulus.Network.IStreamable _Stream;
         public TcpSocketConnecter()
         {
             _Connecter = new Network.Tcp.Connecter();
-            _Connectable = _Connecter;
+            _Stream = _Connecter;
         }
         public override async void Connect(string address)
         {
@@ -18,22 +18,23 @@ namespace Regulus.Remote.Unity
                 return ;
             var ip = result.Groups[1].Value;
             var port = int.Parse(result.Groups[2].Value);
-            await _Connectable.Connect(new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), port));
+            await _Connecter.Connect(new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), port));
         }
 
         public override void Disconnect()
         {
-            _Connectable.Disconnect();
+            _Connecter.Disconnect();
         }
 
         protected override Remote.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
         {
-            return _Connectable.Receive(buffer,offset,count);
+            
+            return _Stream.Receive(buffer,offset,count);
         }
 
         protected override Remote.IWaitableValue<int> _Send(byte[] buffer, int offset, int count)
         {
-            return _Connectable.Send(buffer, offset, count);
+            return _Stream.Send(buffer, offset, count);
         }
     }
 }
