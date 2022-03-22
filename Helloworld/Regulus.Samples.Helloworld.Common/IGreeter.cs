@@ -2,12 +2,12 @@
 
 namespace Regulus.Samples.Helloworld.Common
 {
-    public class HelloRequest
+    public struct HelloRequest
     {
         public string Name;
     }
 
-    public class HelloReply
+    public struct HelloReply
     {
         public string Message;
     }

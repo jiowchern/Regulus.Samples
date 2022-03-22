@@ -9,7 +9,7 @@ namespace Regulus.Samples.Chat1.Bots
         private readonly int _BotCount;
         private readonly System.Collections.Generic.List<IDisposable> _Disposables;
         private readonly Service _Game;
-        private readonly Remote.Standalone.IService _Service;
+        private readonly Remote.Standalone.Service _Service;
 
         public StandaloneApplication(IProtocol protocol, int botcount)
         {
@@ -17,7 +17,7 @@ namespace Regulus.Samples.Chat1.Bots
             this._BotCount = botcount;
             _Disposables = new System.Collections.Generic.List<IDisposable>();
             _Game = new Regulus.Samples.Chat1.Service();
-            _Service = Regulus.Remote.Standalone.Provider.CreateService(protocol, _Game);
+            _Service = Regulus.Remote.Standalone.Provider.CreateService(_Game,protocol );
         }
         protected override void _Launch()
         {
@@ -44,11 +44,9 @@ namespace Regulus.Samples.Chat1.Bots
         {
             while (_Disposables.Count < _BotCount)
             {
+                
+                var agent = _Service.Create();
 
-                var agent = Regulus.Remote.Client.Provider.CreateAgent(_Protocol);
-
-
-                _Service.Join(agent);
 
                 var bot = new Bot(agent);
                 

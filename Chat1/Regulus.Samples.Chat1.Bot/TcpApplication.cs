@@ -44,17 +44,19 @@ namespace Regulus.Samples.Chat1.Bots
         {
             while(_Disposables.Count < _BotCount)
             {
+                var tcpSet = Regulus.Remote.Client.Provider.CreateTcpAgent(_Protocol);
                 
-                var agent = Regulus.Remote.Client.Provider.CreateAgent(_Protocol);
-                var tcp = Regulus.Remote.Client.Provider.CreateTcp(agent);
-                var online = await tcp.Connect(_IPEndPoint);
-                if(online == null)
+                var agent = tcpSet.Agent;
+                var tcp = tcpSet.Connecter;
+                var result = await tcp.Connect(_IPEndPoint);
+                if(result == false)
                 {
                     return;
                 }
                 
                 var bot = new Bot(agent);
-                online.ErrorEvent += (e) =>
+
+                tcp.SocketErrorEvent += (e) =>
                 {
                     lock (_Disposables)
                     {
