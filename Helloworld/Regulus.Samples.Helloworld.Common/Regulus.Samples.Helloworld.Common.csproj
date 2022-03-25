@@ -7,8 +7,8 @@
  
 
  <ItemGroup>
-    <PackageReference Include="Regulus.Remote" Version="0.1.11.6" />
-    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.10">
+    <PackageReference Include="Regulus.Remote" Version="0.1.11.9" />
+    <PackageReference Include="Regulus.Remote.Tools.Protocol.Sources" Version="0.0.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>    
