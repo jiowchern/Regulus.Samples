@@ -1,5 +1,4 @@
 ﻿using Regulus.Utility.WindowConsoleAppliction;
-using System;
 using Regulus.Samples.Chat1.Common;
 using System.Linq;
 
@@ -10,43 +9,27 @@ namespace Regulus.Samples.Chat1.Server
         /// <summary>
         /// 
         /// </summary>
-        /// 
-        /// <param name="port"></param>
-        /// <param name="mode"></param>
-        static void Main(int port,string mode)
+        /// <param name="standaloneport"></param>
+        /// <param name="webport"></param>
+        static void Main(int standaloneport, string webport)
         {
-            
+
             var protocol = Regulus.Samples.Chat1.Common.ProtocolCreater.Create();
             var room = new Regulus.Samples.Chat1.Service();
-            
-            if (mode.ToLower() == "tcp")
-                _Tcp(port, room, protocol);
-            if (mode.ToLower() == "websocket")
-                _WebSocket(port, room, protocol);
-        }
 
-        private static void _WebSocket(int port, Service room, Remote.IProtocol protocol)
-        {
-            var set = Regulus.Remote.Server.Provider.CreateWebService(room , protocol);
-            var listener = set.Listener;
-            listener.Bind($"http://*:{port}/");
+
+            var listener = new Listener();
+            var service = Regulus.Remote.Server.Provider.CreateService(room, protocol, listener);
+
+            listener.Tcp.Bind(standaloneport);
+            listener.Web.Bind($"http://*:{webport}/");
             var console = new Console();
             console.Run();
-            listener.Close();
-            set.Service.Dispose();
+            listener.Tcp.Close();
+            listener.Web.Close();
+            service.Dispose();
         }
 
-
-        private static void _Tcp(int port, Service room, Remote.IProtocol protocol)
-        {
-
-            var set = Regulus.Remote.Server.Provider.CreateTcpService(room, protocol);
-            var listener = set.Listener;
-            listener.Bind(port);
-            var console = new Console();
-            console.Run();
-            listener.Close();
-            set.Service.Dispose();
-        }
+       
     }
 }
