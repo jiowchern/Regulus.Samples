@@ -20,4 +20,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 EXPOSE 53771
-ENTRYPOINT ["dotnet", "Regulus.Samples.Chat1.Server.dll" ,"--port", "53771" ,"--mode" ,"websocket"]
+ENTRYPOINT ["dotnet", "Regulus.Samples.Chat1.Server.dll" ,"--webport", "53771" ,"--tcpport" ,"53772"]

@@ -1,0 +1,1 @@
+docker build -t regulus-samples-chat1-server -f Chat1/Regulus.Samples.Chat1.Server/Dockerfile .

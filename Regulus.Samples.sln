@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Common", "Chat1\Regulus.Samples.Chat1.Common\Regulus.Samples.Chat1.Common.csproj", "{D9702160-747B-40A1-856C-8F70602E27A2}"
 EndProject
@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chat1", "Chat1", "{F9C2FC4D
 		Chat1\readme.md = Chat1\readme.md
 		Chat1\run-server-tcp.cmd = Chat1\run-server-tcp.cmd
 		Chat1\run-server-websocket.cmd = Chat1\run-server-websocket.cmd
+		Chat1\run-server.cmd = Chat1\run-server.cmd
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Test", "Chat1\Regulus.Samples.Chat1.Test\Regulus.Samples.Chat1.Test.csproj", "{AF8ACC50-2EF8-446A-89EE-CA970AD7B8E5}"

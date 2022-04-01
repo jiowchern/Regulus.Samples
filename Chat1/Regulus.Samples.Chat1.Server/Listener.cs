@@ -6,17 +6,16 @@ namespace Regulus.Samples.Chat1.Server
     class Listener : Remote.Soul.IListenable
     {
         
-        public readonly Regulus.Remote.Server.Tcp.Listener Tcp;
-        public readonly Regulus.Remote.Server.Web.Listener Web;
+        
 
         readonly System.Collections.Generic.List<Remote.Soul.IListenable> _Listenables;
         public Listener()
+        {            
+            _Listenables = new System.Collections.Generic.List<Remote.Soul.IListenable>();            
+        }
+        public void Add(Remote.Soul.IListenable listenable)
         {
-            Tcp = new Remote.Server.Tcp.Listener();
-            Web = new Remote.Server.Web.Listener();
-            _Listenables = new System.Collections.Generic.List<Remote.Soul.IListenable>();
-            _Listenables.Add(Tcp);
-            _Listenables.Add(Web);
+            _Listenables.Add(listenable);
         }
         event Action<IStreamable> Remote.Soul.IListenable.StreamableEnterEvent
         {

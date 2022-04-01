@@ -9,9 +9,9 @@ namespace Regulus.Samples.Chat1.Server
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="standaloneport"></param>
+        /// <param name="tcpport"></param>
         /// <param name="webport"></param>
-        static void Main(int standaloneport, string webport)
+        static void Main(int tcpport, int webport)
         {
 
             var protocol = Regulus.Samples.Chat1.Common.ProtocolCreater.Create();
@@ -19,14 +19,30 @@ namespace Regulus.Samples.Chat1.Server
 
 
             var listener = new Listener();
+            
+            var Closes = new System.Collections.Generic.List<System.Action>();
+            if(tcpport != 0)
+            {
+                var tcp = new Regulus.Remote.Server.Tcp.Listener();                
+                listener.Add(tcp);
+                tcp.Bind(tcpport);
+                Closes.Add(()=> tcp.Close());
+            }
+                
+            if(webport != 0)
+            {
+                var web = new Regulus.Remote.Server.Web.Listener();
+                listener.Add(web);
+                web.Bind($"http://*:{webport}/");
+                Closes.Add(() => web.Close());
+            }
             var service = Regulus.Remote.Server.Provider.CreateService(room, protocol, listener);
-
-            listener.Tcp.Bind(standaloneport);
-            listener.Web.Bind($"http://*:{webport}/");
             var console = new Console();
             console.Run();
-            listener.Tcp.Close();
-            listener.Web.Close();
+            foreach(var action in Closes)
+            {
+                action();
+            }
             service.Dispose();
         }
 

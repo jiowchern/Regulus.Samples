@@ -8,7 +8,7 @@
 
 #### 1. run server
 ```powershell
-dotnet run --project .\Regulus.Samples.Chat1.Server\ -- --port 53771 --mode tcp
+dotnet run --project .\Regulus.Samples.Chat1.Server\ -- --tcpport 53772 --webport 0
 ```
 
 #### 2. run client

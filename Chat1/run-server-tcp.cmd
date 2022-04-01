@@ -1,1 +1,1 @@
-dotnet run --project .\Regulus.Samples.Chat1.Server\ --  --port 53771 --mode tcp
+dotnet run --project .\Regulus.Samples.Chat1.Server\ --  --webport 0 --tcpport 53772
