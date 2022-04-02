@@ -1,6 +1,9 @@
 # Chat Room
+## Stride Demo
+[![Unity-DEMO](doc/1648914064143.jpg)](doc/stride-win-x64.7z) 
 ## Unity Demo
 [![Unity-DEMO](doc/Snipaste_2022-03-08_18-24-25.png)](http://114.34.92.204:52000/chat1/index.html) 
+
 
 
 ---
