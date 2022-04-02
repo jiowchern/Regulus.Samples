@@ -1,0 +1,212 @@
+!UIPageAsset
+Id: c0be271b-b70c-452f-9019-0e00826659b7
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 64d60898-4ae1-470a-9482-d5d7be026a03
+    Parts:
+        -   UIElement: !TextBlock
+                Id: 06b75b59-f020-4826-98a7-fdf6a52e7dca
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: Quit
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !Grid
+                Id: 2dba01e1-9da1-4b16-9577-c80ca2ebe94f
+                DependencyProperties:
+                    7ea5a8f748e5004e67fe758cff9b186e~GridBase.RowPropertyKey: 1
+                BackgroundColor: {R: 2, G: 2, B: 43, A: 250}
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: List
+                Children: {}
+                RowDefinitions:
+                    645fff59a90096862e59f3ea6cd2d8b7: {}
+                    a470cfcfc49812eb04ae7d4eda7cf6f5: {}
+                    09936aede8bdf7add7453ecb8420329d: {}
+                    9b9798a823c3564f5af3d827b3899acc: {}
+                    00307d518a58905a7ea64882c1b31ab0: {}
+                    0dd7cff511bd21ebd8cdad46796d1465: {}
+                    6f31dbe5246b27141180a6524f70471c: {}
+                    170ace4970170dc644dda30f3fca729a: {}
+                    f3fe62ae6514ff48f3e408dbe16871a1: {}
+                    2988deb8a8abb208b0e4a2b250403e23: {}
+                    b956c8cba3489ba4ea0976799e1d91a0: {}
+                    47a9a731a619beec4d06edd19fc605d0: {}
+                    58f9141e0a6ec346824cbd58a94dda0b: {}
+                    599624567729f8919ab37bdba324d85b: {}
+                    70e35fac181ac7fa89bfae37f11a97c9: {}
+                    e6146432c5c269cd1ca328f66d6f51fa: {}
+                    ebfd282f6c1185d34464a08797499870: {}
+                    b7466ed1ffa0b2cd05a6ff8dc6d4cb05: {}
+                    0216559881a7dfd63cd20b281695cda0: {}
+                    b0ee35895e43160b5d4958be02d338cb: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !EditText
+                Id: 4952d7a5-06b8-4e53-b716-25e62af7b7de
+                DependencyProperties:
+                    9bd19a9b61585a5b460126ebf734df6e~GridBase.RowPropertyKey: 0
+                    e5893b6b53d90f483fae1ab6e1b2f06e~GridBase.ColumnPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 5
+                CanBeHitByUser: true
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Message
+                Padding: {Left: 8.0, Top: 4.0, Right: 8.0, Bottom: 8.0}
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                ActiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 3
+                InactiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 4
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 5
+                CaretColor: {R: 240, G: 240, B: 240, A: 255}
+                CaretWidth: 1.0
+                SelectionColor: {R: 240, G: 240, B: 240, A: 255}
+                IMESelectionColor: {R: 240, G: 255, B: 240, A: 255}
+                CaretFrequency: 1.0
+        -   UIElement: !Grid
+                Id: 64d60898-4ae1-470a-9482-d5d7be026a03
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    878de0fbb7f67d299cf9a037ce40c171: !Button ref!! 67af8597-9dbe-4e1c-a79a-7eddfc50fbcb
+                    dc373ab3f7eac42bf746c0a56563aadb: !Grid ref!! 2dba01e1-9da1-4b16-9577-c80ca2ebe94f
+                    06593dc14194ed48b5869b1f129b5f29: !Grid ref!! b53b2887-4471-4f90-864b-033c4f221c70
+                RowDefinitions:
+                    b76f10f8d0e31db0fcdec419dea5c599:
+                        MaximumSize: 3.4028235E+38
+                    329306912eebcb19af6513a6c1413ccf:
+                        SizeValue: 18.0
+                    1206449559601470d74e08a7d0caec23: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !Button
+                Id: 67af8597-9dbe-4e1c-a79a-7eddfc50fbcb
+                DependencyProperties:
+                    c8b0f6cabeecfdab7a3a2c2317c9c016~GridBase.RowPropertyKey: 0
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Quit
+                Content: !TextBlock ref!! 06b75b59-f020-4826-98a7-fdf6a52e7dca
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+        -   UIElement: !Button
+                Id: 7079ab03-3a4e-4738-abfd-5416d3ed6d32
+                DependencyProperties:
+                    e7f78107bf72cbf7d4a3b61e3e40a595~GridBase.ColumnPropertyKey: 2
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Send
+                Content: !TextBlock ref!! 8290225b-7661-4ce3-9bbb-e170f1c0faac
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+        -   UIElement: !TextBlock
+                Id: 8290225b-7661-4ce3-9bbb-e170f1c0faac
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: Send
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !Grid
+                Id: b53b2887-4471-4f90-864b-033c4f221c70
+                DependencyProperties:
+                    6567be3524522157b063cf562be2967b~GridBase.RowPropertyKey: 2
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    327df9432abfae57f317f448c0437e71: !EditText ref!! b6d8c343-a21c-4dd8-ade5-5e2df3bd8c76
+                    e52de20da1f2d773be78a85bb4208041: !EditText ref!! 4952d7a5-06b8-4e53-b716-25e62af7b7de
+                    09273663eb31618954e117c4e501e3f8: !Button ref!! 7079ab03-3a4e-4738-abfd-5416d3ed6d32
+                RowDefinitions: {}
+                ColumnDefinitions:
+                    9e6d6a3853f27d6e2e322a43ab28ff3c: {}
+                    f7d28b27869183e1c6ec884393e85133:
+                        SizeValue: 3.0
+                    bacd95665ecd9c08319068de01e2da25: {}
+                LayerDefinitions: {}
+        -   UIElement: !EditText
+                Id: b6d8c343-a21c-4dd8-ade5-5e2df3bd8c76
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 5
+                CanBeHitByUser: true
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Target
+                Padding: {Left: 8.0, Top: 4.0, Right: 8.0, Bottom: 8.0}
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                ActiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 3
+                InactiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 4
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 5
+                CaretColor: {R: 240, G: 240, B: 240, A: 255}
+                CaretWidth: 1.0
+                SelectionColor: {R: 240, G: 240, B: 240, A: 255}
+                IMESelectionColor: {R: 240, G: 255, B: 240, A: 255}
+                CaretFrequency: 1.0

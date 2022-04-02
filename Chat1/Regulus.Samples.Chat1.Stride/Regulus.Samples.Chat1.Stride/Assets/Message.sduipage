@@ -1,0 +1,78 @@
+!UIPageAsset
+Id: 9db2eb61-1ca5-4758-994b-94c1b54601e1
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! b8edd5e4-271f-4dcc-bc8d-af491500de51
+    Parts:
+        -   UIElement: !Button
+                Id: 3c57ba12-f76e-4399-b74a-cdd8c306b574
+                DependencyProperties:
+                    dad8dd6cba3ddf0b7597ab6cf0207022~GridBase.RowPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Submit
+                Content: !TextBlock ref!! b4d74ef1-7174-492d-83e1-b68db815829e
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+        -   UIElement: !TextBlock
+                Id: a597c124-07e5-46a5-9348-c84bf8bcf9a3
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Text
+                Text: 1234567890ccscasc
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !TextBlock
+                Id: b4d74ef1-7174-492d-83e1-b68db815829e
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: Ok
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !Grid
+                Id: b8edd5e4-271f-4dcc-bc8d-af491500de51
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 600.0
+                Height: 400.0
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    985a33629c1dc0ae82e1028f2f0df9f7: !TextBlock ref!! a597c124-07e5-46a5-9348-c84bf8bcf9a3
+                    b2353f0e6d6ca2e372efb1f7be8ed938: !Button ref!! 3c57ba12-f76e-4399-b74a-cdd8c306b574
+                RowDefinitions:
+                    0441f1e6a4e6426793ad15be01c7a8f4:
+                        SizeValue: 9.0
+                    c9e95dd6593eaaa3c0322f26acad2d7f: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}

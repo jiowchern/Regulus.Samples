@@ -1,0 +1,193 @@
+!UIPageAsset
+Id: abb0bf38-7758-4bf8-922a-6ecadf9aa407
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Canvas ref!! 0e3b79cb-312e-4ccf-ac63-eac188b96a0e
+    Parts:
+        -   UIElement: !EditText
+                Id: 07db3071-1ec1-4deb-b3e7-6dc1a26a5feb
+                DependencyProperties:
+                    a888d4bc73681c44536f67e1d0e1e376~GridBase.ColumnPropertyKey: 1
+                    bef3c77f3bb820ee30997a90b80bf0bf~GridBase.RowPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 5
+                CanBeHitByUser: true
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Port
+                Padding: {Left: 8.0, Top: 4.0, Right: 8.0, Bottom: 8.0}
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                ActiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 3
+                InactiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 4
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 5
+                CaretColor: {R: 240, G: 240, B: 240, A: 255}
+                CaretWidth: 1.0
+                SelectionColor: {R: 240, G: 240, B: 240, A: 255}
+                IMESelectionColor: {R: 240, G: 255, B: 240, A: 255}
+                CaretFrequency: 1.0
+        -   UIElement: !Grid
+                Id: 0990f215-81af-48e3-851b-c8f3b5fc7713
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    5dbde368fcd220da7e2500c9c03d9d4e: !TextBlock ref!! d6dc379b-4e6c-412a-a22c-5b595a4f5d5f
+                    65bbcb0d707a96794302947d2b13ba90: !TextBlock ref!! 32f71cf6-801e-4cd8-9889-5543073da080
+                    b6365004a182c7ac8222dfbc03378fb3: !EditText ref!! c4bbcad8-b440-4d20-9477-fadf63c6f717
+                    07d9ef100c9fb862dccaace53abe480a: !EditText ref!! 07db3071-1ec1-4deb-b3e7-6dc1a26a5feb
+                RowDefinitions:
+                    59f0f1a05eba414488a756694705b6cb: {}
+                    62f66a0dc776ac40e967692d1fc04b5d: {}
+                ColumnDefinitions:
+                    fd4df3279d78c42fb87ab45cd893bddb: {}
+                    627a7b10fab1192f7e72a05212eb56aa:
+                        SizeValue: 1.5
+                LayerDefinitions: {}
+        -   UIElement: !Canvas
+                Id: 0e3b79cb-312e-4ccf-ac63-eac188b96a0e
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 400.0
+                Height: 200.0
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    fa95da9fe2cf8872bfbfa44605e9c607: !Grid ref!! 236d99c5-8eba-4837-8f6e-ffb00772247b
+        -   UIElement: !Grid
+                Id: 236d99c5-8eba-4837-8f6e-ffb00772247b
+                DependencyProperties: {}
+                BackgroundColor: {R: 52, G: 16, B: 16, A: 220}
+                Width: 400.0
+                Height: 200.0
+                HorizontalAlignment: Left
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    d573220a690c73f03100264097edf9f6: !Button ref!! aee2df4e-5d77-4ea9-9494-5bd9dac65170
+                    322ec919c2d778fb2d2f8db66eb05936: !Grid ref!! 0990f215-81af-48e3-851b-c8f3b5fc7713
+                RowDefinitions:
+                    c5f6b4b611f3c1b1020cb99d5e2858aa:
+                        SizeValue: 4.0
+                    ffa1ede09f88fa3ddb146cc358684873: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !TextBlock
+                Id: 32f71cf6-801e-4cd8-9889-5543073da080
+                DependencyProperties:
+                    a5845c13ee5da1f106ede3ba094cabeb~GridBase.RowPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Right
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: Port
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !Button
+                Id: aee2df4e-5d77-4ea9-9494-5bd9dac65170
+                DependencyProperties:
+                    9365410eb55f60736171b517eb80f01c~Canvas.AbsolutePositionPropertyKey: {X: 0.0, Y: 0.0, Z: 0.0}
+                    70f9779b8c9ce81dfa40dd1b413666b9~Canvas.PinOriginPropertyKey: {X: 0.0, Y: 0.0, Z: 0.0}
+                    7b7fd249b76f658fdab8cdf2255056e1~GridBase.RowPropertyKey: 1
+                    70a0d70e410c27f811dc5cb911372fe6~GridBase.RowSpanPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Connection
+                Content: !TextBlock ref!! d7f26bfd-af1c-4ffc-94ae-33ef8b9dc367
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+        -   UIElement: !EditText
+                Id: c4bbcad8-b440-4d20-9477-fadf63c6f717
+                DependencyProperties:
+                    6e81000b646e3560238704715304c173~GridBase.ColumnPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 5
+                CanBeHitByUser: true
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: Address
+                Padding: {Left: 8.0, Top: 4.0, Right: 8.0, Bottom: 8.0}
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                ActiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 3
+                InactiveImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 4
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 5
+                CaretColor: {R: 240, G: 240, B: 240, A: 255}
+                CaretWidth: 1.0
+                SelectionColor: {R: 240, G: 240, B: 240, A: 255}
+                IMESelectionColor: {R: 240, G: 255, B: 240, A: 255}
+                CaretFrequency: 1.0
+        -   UIElement: !TextBlock
+                Id: d6dc379b-4e6c-412a-a22c-5b595a4f5d5f
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Right
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: IPAddress
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !TextBlock
+                Id: d7f26bfd-af1c-4ffc-94ae-33ef8b9dc367
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: Connect
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}

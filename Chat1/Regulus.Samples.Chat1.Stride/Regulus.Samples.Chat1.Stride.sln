@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Stride.Windows", "Regulus.Samples.Chat1.Stride.Windows\Regulus.Samples.Chat1.Stride.Windows.csproj", "{0338EC4F-AA30-49CB-B7F2-1698ED909A49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regulus.Samples.Chat1.Stride", "Regulus.Samples.Chat1.Stride\Regulus.Samples.Chat1.Stride.csproj", "{31DFEDEA-7DB0-44C6-AEC8-8BCFA91C76F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0338EC4F-AA30-49CB-B7F2-1698ED909A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0338EC4F-AA30-49CB-B7F2-1698ED909A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0338EC4F-AA30-49CB-B7F2-1698ED909A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0338EC4F-AA30-49CB-B7F2-1698ED909A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DFEDEA-7DB0-44C6-AEC8-8BCFA91C76F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DFEDEA-7DB0-44C6-AEC8-8BCFA91C76F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DFEDEA-7DB0-44C6-AEC8-8BCFA91C76F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DFEDEA-7DB0-44C6-AEC8-8BCFA91C76F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE9729A0-8714-43E0-869C-17601C43D3CF}
+	EndGlobalSection
+EndGlobal
