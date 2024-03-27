@@ -8,15 +8,16 @@ namespace Regulus.Samples.Chat1.Bots
         private readonly IProtocol _Protocol;
         private readonly int _BotCount;
         private readonly System.Collections.Generic.List<IDisposable> _Disposables;
-        private readonly Service _Game;
+        
+        private readonly Entry _Game;
         private readonly Remote.Standalone.Service _Service;
 
         public StandaloneApplication(IProtocol protocol, int botcount)
         {
             this._Protocol = protocol;
             this._BotCount = botcount;
-            _Disposables = new System.Collections.Generic.List<IDisposable>();
-            _Game = new Regulus.Samples.Chat1.Service();
+            _Disposables = new System.Collections.Generic.List<IDisposable>();        
+            _Game = new Regulus.Samples.Chat1.Entry();
             _Service = Regulus.Remote.Standalone.Provider.CreateService(_Game,protocol );
         }
         protected override void _Launch()

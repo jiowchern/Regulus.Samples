@@ -3,15 +3,17 @@ using System.Collections.Generic;
 
 namespace Regulus.Samples.Chat1
 {
-    public class Service : Regulus.Remote.IEntry
+    public class Entry : Regulus.Remote.IEntry
     {
         readonly Room _Room;
         readonly List<User> _User;
-        public Service()
+
+        public readonly Announceable Announcement;
+        public Entry()
         {
             _Room = new Room();
             _User = new List<User>();
-           
+            Announcement = _Room;
         }
         void IBinderProvider.AssignBinder(IBinder binder)
         {
@@ -27,7 +29,7 @@ namespace Regulus.Samples.Chat1
                 _User.Add(user);
         }
 
-        ~Service()
+        ~Entry()
         {
             _Room.Dispose();
         }        

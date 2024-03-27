@@ -67,6 +67,18 @@ namespace Regulus.Samples.Chat1
         }
 
         
+        event Action<Message> IPlayer.AnnounceEvent
+        {
+            add
+            {
+                _Room.AnnounceEvent += value;                
+            }
+
+            remove
+            {
+                _Room.AnnounceEvent -= value;
+            }
+        }
 
         void IPlayer.Quit()
         {

@@ -6,14 +6,17 @@ using System.Linq;
 
 namespace Regulus.Samples.Chat1
 {
-    internal class Room  : IHistroyable
+    internal class Room  : IHistroyable , Announceable
     {
         readonly ItemNotifier<Chatter> _Chatters;
         readonly System.Collections.Generic.List<Message> _Messages;
         public INotifier<Chatter> Chatters => _Chatters;
         public readonly IHistroyable Histroyable;
+
+        public event System.Action<Message> AnnounceEvent;
         public Room()
         {
+            AnnounceEvent = (m) => { };
             Histroyable = this;
             _Messages = new System.Collections.Generic.List<Message>();
             _Chatters = new ItemNotifier<Chatter>();
@@ -58,7 +61,10 @@ namespace Regulus.Samples.Chat1
 
             
         }
-
+        void Announceable.Announce(string name ,string message)
+        {
+            AnnounceEvent(new Message { Name=name,Context = message});
+        }
         public void Dispose()
         {
             lock(_Chatters)

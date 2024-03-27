@@ -22,6 +22,7 @@ namespace Regulus.Samples.Chat1.Client
         {
             _Player.Chatters.Base.Supply += _AddChatter;
             _Player.Chatters.Base.Unsupply += _RemoveChatter;
+
             _RegistPlayer();
         }
 
@@ -39,15 +40,18 @@ namespace Regulus.Samples.Chat1.Client
         private void _UnegistPlayer()
         {
             _Command.Unregister("send");
-            _Player.PublicMessageEvent += _PublicMessage;
-            _Player.PrivateMessageEvent += _PrivateMessage;
+            _Player.PublicMessageEvent -= _PublicMessage;
+            _Player.PrivateMessageEvent -= _PrivateMessage;
+            _Player.AnnounceEvent -= _AnnounceMessage;
         }
+
 
         private void _RegistPlayer()
         {
             _Command.Register<string>("send", msg => _Player.Send(msg));
             _Player.PublicMessageEvent += _PublicMessage;
             _Player.PrivateMessageEvent += _PrivateMessage;
+            _Player.AnnounceEvent += _AnnounceMessage;
         }
 
         private void _PrivateMessage(Common.Message msg)
@@ -57,7 +61,11 @@ namespace Regulus.Samples.Chat1.Client
 
         private void _PublicMessage(Common.Message msg)
         {
-            System.Console.WriteLine($"{msg.Name}:{msg.Context}");
+            System.Console.WriteLine($"[normal]{msg.Name}:{msg.Context}");
+        }
+        private void _AnnounceMessage(Message msg)
+        {
+            System.Console.WriteLine($"[announce]{msg.Name}:{msg.Context}");
         }
 
         private void _RemoveChatter(IChatter cahtter)

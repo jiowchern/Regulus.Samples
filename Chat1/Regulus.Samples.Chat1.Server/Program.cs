@@ -15,7 +15,7 @@ namespace Regulus.Samples.Chat1.Server
         {
 
             var protocol = Regulus.Samples.Chat1.Common.ProtocolCreater.Create();
-            var room = new Regulus.Samples.Chat1.Service();
+            var room = new Regulus.Samples.Chat1.Entry();
 
 
             var listener = new Listener();
@@ -37,7 +37,7 @@ namespace Regulus.Samples.Chat1.Server
                 Closes.Add(() => web.Close());
             }
             var service = Regulus.Remote.Server.Provider.CreateService(room, protocol, listener);
-            var console = new Console();
+            var console = new Console(room.Announcement);
             console.Run();
             foreach(var action in Closes)
             {

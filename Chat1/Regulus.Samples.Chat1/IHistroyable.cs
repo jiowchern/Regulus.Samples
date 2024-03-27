@@ -6,4 +6,5 @@ namespace Regulus.Samples.Chat1
     {
         Message[] Query();
     }
+    
 }

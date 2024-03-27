@@ -1,4 +1,5 @@
 ﻿using Regulus.Samples.Chat1.Common;
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +47,9 @@ public class Chat1Room : MonoBehaviour
         _Player.Chatters.Base.Unsupply -= _RemoveChatter;
         _Player.PublicMessageEvent -= _PublicMessage;
         _Player.PrivateMessageEvent -= _PrivateMessage;
+        _Player.AnnounceEvent -= _AnnounceMessage;
+
+
     }
 
     private void _Show(IPlayer obj)
@@ -55,8 +59,10 @@ public class Chat1Room : MonoBehaviour
         _Player.Chatters.Base.Unsupply += _RemoveChatter;
         _Player.PublicMessageEvent += _PublicMessage;
         _Player.PrivateMessageEvent += _PrivateMessage;
+        _Player.AnnounceEvent += _AnnounceMessage;
         Root.SetActive(true);
     }
+
 
     private void _RemoveChatter(IChatter chatter)
     {
@@ -77,7 +83,12 @@ public class Chat1Room : MonoBehaviour
 
     private void _PublicMessage(Message message)
     {
-        _PushMessage("" , message.Name, message.Context);
+        _PushMessage("[normal]" , message.Name, message.Context);
+    }
+    private void _AnnounceMessage(Message message)
+    {
+        _PushMessage("[announcement]", message.Name, message.Context);
+
     }
 
     private void _PushMessage(string prefix, string name, string message)
