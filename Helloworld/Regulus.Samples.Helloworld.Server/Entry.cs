@@ -16,18 +16,25 @@ namespace Regulus.Samples.Helloworld.Server
             Enable = true;
         }
 
-        void IBinderProvider.AssignBinder(IBinder binder)
+        void IBinderProvider.RegisterClientBinder(Regulus.Remote.IBinder binder)
         {
-            // IBinder is what you get when your client completes the connection.
-            binder.BreakEvent += _End;
+            // IBinder is what you get when your client completes the connection.            
             var soul = binder.Bind<IGreeter>(_Greeter);
             // unbind : binder.Unbind<IGreeter>(soul);
+        }
+        void IBinderProvider.UnregisterClientBinder(Regulus.Remote.IBinder binder)
+        {
+            _End();
         }
 
         private void _End()
         {
             Enable = false;
         }
-        
+
+        void IEntry.Update()
+        {
+         
+        }
     }
 }

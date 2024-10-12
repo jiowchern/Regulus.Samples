@@ -1,4 +1,5 @@
 ﻿using Regulus.Remote;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Regulus.Samples.Chat1
@@ -15,18 +16,27 @@ namespace Regulus.Samples.Chat1
             _User = new List<User>();
             Announcement = _Room;
         }
-        void IBinderProvider.AssignBinder(IBinder binder)
+        void IBinderProvider.RegisterClientBinder(IBinder binder)
         {
             
             User user = new User(binder, _Room);
-            binder.BreakEvent += () =>
-            {
-                user.Dispose();
-                lock (_User)
-                    _User.Remove(user);
-            };
+            
             lock(_User)
                 _User.Add(user);
+        }
+        void IBinderProvider.UnregisterClientBinder(IBinder binder)
+        {
+            lock (_User)
+            {
+                var user = _User.First(u=>u.Binder == binder);
+                _User.Remove(user);
+                user.Dispose();
+            }                
+        }
+
+        void IEntry.Update()
+        {
+            
         }
 
         ~Entry()

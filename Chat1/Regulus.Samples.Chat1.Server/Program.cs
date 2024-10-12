@@ -13,7 +13,7 @@ namespace Regulus.Samples.Chat1.Server
         /// <param name="webport"></param>
         static void Main(int tcpport, int webport)
         {
-
+            Regulus.Utility.Log.Instance.RecordEvent += (message) => System.Console.WriteLine(message);
             var protocol = Regulus.Samples.Chat1.Common.ProtocolCreater.Create();
             var room = new Regulus.Samples.Chat1.Entry();
 
@@ -23,6 +23,7 @@ namespace Regulus.Samples.Chat1.Server
             var Closes = new System.Collections.Generic.List<System.Action>();
             if(tcpport != 0)
             {
+                System.Console.WriteLine($"Tcp port : {tcpport}");
                 var tcp = new Regulus.Remote.Server.Tcp.Listener();                
                 listener.Add(tcp);
                 tcp.Bind(tcpport);
@@ -31,6 +32,7 @@ namespace Regulus.Samples.Chat1.Server
                 
             if(webport != 0)
             {
+                System.Console.WriteLine($"Web port : {webport}");
                 var web = new Regulus.Remote.Server.Web.Listener();
                 listener.Add(web);
                 web.Bind($"http://*:{webport}/");

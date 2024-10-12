@@ -5,7 +5,7 @@ using NativeWebSocket;
 
 namespace Regulus.Remote.Unity
 {
-    public class WebSocketConnecter : Connecter
+    public class WebSocketConnector : Connector
     {
 
         NativeWebSocket.WebSocket _Socket;
@@ -13,7 +13,7 @@ namespace Regulus.Remote.Unity
         readonly System.Collections.Concurrent.ConcurrentQueue<byte> _Reads;
         readonly System.Collections.Concurrent.ConcurrentQueue<byte> _Writes;
         public event System.Action CloseEvent; 
-        public WebSocketConnecter()
+        public WebSocketConnector()
         {
             CloseEvent += () => { };
             _Socket = new WebSocket("ws://127.0.0.1:1111");

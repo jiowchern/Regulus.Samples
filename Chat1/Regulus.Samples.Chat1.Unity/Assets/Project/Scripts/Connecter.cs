@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Regulus.Remote.Unity
 {
-    public abstract class Connecter : MonoBehaviour, Regulus.Network.IStreamable
+    public abstract class Connector : MonoBehaviour, Regulus.Network.IStreamable
     {
         protected abstract Regulus.Remote.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count);
         Regulus.Remote.IWaitableValue<int> IStreamable.Receive(byte[] buffer, int offset, int count)

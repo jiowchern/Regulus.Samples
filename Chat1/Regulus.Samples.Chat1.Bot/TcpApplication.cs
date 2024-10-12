@@ -47,16 +47,16 @@ namespace Regulus.Samples.Chat1.Bots
                 var tcpSet = Regulus.Remote.Client.Provider.CreateTcpAgent(_Protocol);
                 
                 var agent = tcpSet.Agent;
-                var tcp = tcpSet.Connecter;
-                var result = await tcp.Connect(_IPEndPoint);
-                if(result == false)
+                var tcp = tcpSet.Connector;
+                var peer = await tcp.Connect(_IPEndPoint);
+                if(peer == null)
                 {
                     return;
                 }
                 
                 var bot = new Bot(agent);
 
-                tcp.SocketErrorEvent += (e) =>
+                peer.SocketErrorEvent += (e) =>
                 {
                     lock (_Disposables)
                     {

@@ -11,7 +11,7 @@ public class Chat1Connect : MonoBehaviour
     public UnityEngine.GameObject Panel;
     public UnityEngine.UI.InputField IP;
     public UnityEngine.UI.InputField Port;
-    public Regulus.Remote.Unity.Connecter Connecter;
+    public Regulus.Remote.Unity.Connector Connector;
     public UnityEngine.UI.Text Message;
     
     System.Action _OnConnect;
@@ -31,7 +31,7 @@ public class Chat1Connect : MonoBehaviour
         
 
         System.Action onConnect = () => {
-            Connecter.Connect($"{IP.text}:{Port.text}");
+            Connector.Connect($"{IP.text}:{Port.text}");
         };
         _OnConnect = onConnect;
 

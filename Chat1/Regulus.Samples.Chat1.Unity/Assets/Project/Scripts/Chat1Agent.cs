@@ -6,7 +6,7 @@ using UnityEngine;
 public class Chat1Agent : MonoBehaviour , Regulus.Network.IStreamable
 {
     public readonly Regulus.Remote.Ghost.IAgent Agent;
-    public Regulus.Remote.Unity.Connecter Connecter;
+    public Regulus.Remote.Unity.Connector Connector;
 
 
     Regulus.Network.IStreamable _Stream;
@@ -23,7 +23,7 @@ public class Chat1Agent : MonoBehaviour , Regulus.Network.IStreamable
 
     public void Start()
     {
-        _Stream = Connecter;
+        _Stream = Connector;
     }
 
     public void Update()
@@ -36,8 +36,8 @@ public class Chat1Agent : MonoBehaviour , Regulus.Network.IStreamable
     }
 
     public static Regulus.Remote.Ghost.IAgent FindAgent()
-    {
-        return UnityEngine.GameObject.FindObjectOfType<Chat1Agent>()?.Agent;        
+    {        
+        return UnityEngine.GameObject.FindAnyObjectByType<Chat1Agent>()?.Agent;        
     }
 
     IWaitableValue<int> IStreamable.Receive(byte[] buffer, int offset, int count)

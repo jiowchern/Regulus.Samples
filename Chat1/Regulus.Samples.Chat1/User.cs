@@ -5,13 +5,13 @@ namespace Regulus.Samples.Chat1
 {
     internal class User
     {
-        private readonly IBinder _Binder;
+        public readonly IBinder Binder;
         private readonly Room _Room;
 
         readonly Regulus.Utility.StageMachine _Machine;
         public User(IBinder binder, Room room)
         {
-            this._Binder = binder;
+            this.Binder = binder;
             this._Room = room;
             _Machine = new Utility.StageMachine();
 
@@ -20,7 +20,7 @@ namespace Regulus.Samples.Chat1
 
         private void _ToLogin()
         {
-            var stage = new UserLogin(_Binder);
+            var stage = new UserLogin(Binder);
             stage.DoneEvent += _ToChat;
             _Machine.Push(stage);
         }
@@ -28,7 +28,7 @@ namespace Regulus.Samples.Chat1
         private void _ToChat(string name)
         {
             
-            var stage = new UserChat(_Binder, _Room, name);
+            var stage = new UserChat(Binder, _Room, name);
             stage.DoneEvent += _ToLogin;
             _Machine.Push(stage);
         }

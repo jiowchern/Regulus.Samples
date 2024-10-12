@@ -58,7 +58,7 @@ namespace Regulus.Samples.Chat1.Client
             var protocol = Regulus.Remote.Protocol.ProtocolProvider.Create(protocolAsm).First();
             
             var set = Regulus.Remote.Client.Provider.CreateTcpAgent(protocol);
-            var console = new RemoteConsole(set.Connecter, set.Agent);
+            var console = new RemoteConsole(set.Connector , set.Agent);
             console.Run();
         }
     }
