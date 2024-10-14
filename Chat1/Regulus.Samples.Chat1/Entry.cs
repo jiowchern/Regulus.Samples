@@ -32,9 +32,9 @@ namespace Regulus.Samples.Chat1
                 _User.Remove(user);
                 user.Dispose();
             }                
-        }
+        } 
 
-        void IEntry.Update()
+        void IEntry.Update() 
         {
             
         }

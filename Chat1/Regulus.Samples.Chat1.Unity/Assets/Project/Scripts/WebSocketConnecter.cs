@@ -3,21 +3,27 @@ using System;
 using System.Threading.Tasks;
 using NativeWebSocket;
 
+
 namespace Regulus.Remote.Unity
 {
+}
+namespace Regulus.Remote.Unity
+{
+
     public class WebSocketConnector : Connector
     {
 
         NativeWebSocket.WebSocket _Socket;
 
-        readonly System.Collections.Concurrent.ConcurrentQueue<byte> _Reads;
+        readonly System.Collections.Concurrent.BlockingCollection<byte> _Reads;
         readonly System.Collections.Concurrent.ConcurrentQueue<byte> _Writes;
         public event System.Action CloseEvent; 
         public WebSocketConnector()
         {
+            
             CloseEvent += () => { };
             _Socket = new WebSocket("ws://127.0.0.1:1111");
-            _Reads = new System.Collections.Concurrent.ConcurrentQueue<byte>();
+            _Reads = new System.Collections.Concurrent.BlockingCollection<byte>();
             _Writes = new System.Collections.Concurrent.ConcurrentQueue<byte>();
 
 
@@ -54,7 +60,7 @@ namespace Regulus.Remote.Unity
             
             foreach (var b in data)
             {
-                _Reads.Enqueue(b);
+                _Reads.Add(b);
             }
             
         }
@@ -66,23 +72,21 @@ namespace Regulus.Remote.Unity
 
         private void _Open()
         {
+            ConnectedEvent.Invoke(this);
             UnityEngine.Debug.Log("open");
         }
 
         protected override Regulus.Remote.IWaitableValue<int> _Receive(byte[] buffer, int offset, int count)
         {
-            byte data;
+            
             int i = 0;
 
-            while (_Reads.TryDequeue(out data))
+            foreach (var data in _Reads.GetConsumingEnumerable())
             {
-
                 buffer[offset + i++] = data;
                 if (i == count)
                     break;
-            }
-                     
-            
+            }            
 
             return new Network.NoWaitValue<int>(i);
         }
@@ -98,7 +102,7 @@ namespace Regulus.Remote.Unity
             
             return new Network.NoWaitValue<int>(count);
         }
-
+        public UnityEngine.Events.UnityEvent<Regulus.Network.IStreamable> ConnectedEvent;
         public override async void Connect(string address)
         {
             var result = System.Text.RegularExpressions.Regex.Match(address, "([\\w\\.]+):(\\d+)");

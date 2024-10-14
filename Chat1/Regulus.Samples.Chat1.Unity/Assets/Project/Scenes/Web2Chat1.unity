@@ -1001,7 +1001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b97c17ed678604189600a04aa07d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Connector: {fileID: 556081198}
 --- !u!4 &556081197
 Transform:
   m_ObjectHideFlags: 0
@@ -1026,24 +1025,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 556081195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5998d62eb8aff14a982d2478b0c4874, type: 3}
+  m_Script: {fileID: 11500000, guid: 02c46f14932f2a54f98db7340e15f2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 556081196}
-        m_TargetAssemblyTypeName: Chat1Agent, Assembly-CSharp
-        m_MethodName: ConnectSuccess
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  Agent: {fileID: 556081196}
 --- !u!1 &603501274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,10 +2045,10 @@ RectTransform:
   - {fileID: 1643754230}
   m_Father: {fileID: 380297719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 384.02002, y: 25.974976}
-  m_SizeDelta: {x: -767.9538, y: 52.049988}
+  m_AnchoredPosition: {x: -77.518616, y: 26}
+  m_SizeDelta: {x: 155.0765, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166797389
 MonoBehaviour:
@@ -2501,7 +2486,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 53772
+  m_Text: 53771
 --- !u!222 &1371763079
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2678,10 +2663,10 @@ RectTransform:
   - {fileID: 837641486}
   m_Father: {fileID: 380297719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 25.25, y: 26}
-  m_SizeDelta: {x: -406.5, y: 52}
+  m_AnchoredPosition: {x: -597.81, y: 26.04}
+  m_SizeDelta: {x: 885.5, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406761283
 MonoBehaviour:
@@ -3005,7 +2990,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 53772
+  m_Text: 53771
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -3775,9 +3760,9 @@ RectTransform:
   m_Father: {fileID: 380297719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -358.75, y: 0}
-  m_SizeDelta: {x: -717.5, y: 52.04004}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 125.91998, y: 0}
+  m_SizeDelta: {x: 251.84, y: 52.04}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1950222235
 MonoBehaviour:

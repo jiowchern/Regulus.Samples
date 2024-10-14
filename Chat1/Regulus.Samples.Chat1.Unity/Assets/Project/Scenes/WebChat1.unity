@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -92,7 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5fc420af362b32e42aef2ac5bdd188db,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 4bfd77d6a745f9b41b05778f4a011ce8,
     type: 2}
 --- !u!196 &4
@@ -1001,7 +1003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b97c17ed678604189600a04aa07d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Connector: {fileID: 556081198}
 --- !u!4 &556081197
 Transform:
   m_ObjectHideFlags: 0
@@ -1029,6 +1030,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe5575f1797f954892ffa634f6ab007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConnectedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 556081196}
+        m_TargetAssemblyTypeName: Chat1Agent, Assembly-CSharp
+        m_MethodName: ConnectSuccess
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &603501274
 GameObject:
   m_ObjectHideFlags: 0
